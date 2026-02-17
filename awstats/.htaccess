@@ -1,4 +1,0 @@
-AuthName "invoices.xappee.com statistics"
-AuthType Basic
-AuthUserFile /home/xappee/domains/invoices.xappee.com/.awstats-htpasswd
-require valid-user
