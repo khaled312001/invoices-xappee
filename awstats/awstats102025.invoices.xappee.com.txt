@@ -1,0 +1,956 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202510 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.invoices.xappee.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 30
+POS_GENERAL 2072                
+POS_TIME 2755                
+POS_VISITOR 19869               
+POS_DAY 21671               
+POS_DOMAIN 3478                
+POS_LOGIN 3708                
+POS_ROBOT 3863                
+POS_WORMS 4192                
+POS_EMAILSENDER 4323                
+POS_EMAILRECEIVER 4466                
+POS_SESSION 22178               
+POS_SIDER 22355               
+POS_FILETYPES 4601                
+POS_DOWNLOADS 4792                
+POS_OS 4840                
+POS_BROWSER 5058                
+POS_SCREENSIZE 5482                
+POS_UNKNOWNREFERER 5556                
+POS_UNKNOWNREFERERBROWSER 5830                
+POS_ORIGIN 5912                
+POS_SEREFERRALS 6048                
+POS_PAGEREFS 6211                
+POS_SEARCHWORDS 6359                
+POS_KEYWORDS 6511                
+POS_MISC 2418                
+POS_ERRORS 6570                
+POS_CLUSTER 3564                
+POS_SIDER_400 6707                
+POS_SIDER_403 6789                
+POS_SIDER_404 6879                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20251101071246 231 44000 17788860183446
+FirstTime 20251001005756
+LastTime 20251031140214
+LastUpdate 20251101202903 231 228 0 0 2
+TotalVisits 46                  
+TotalUnique 44                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 44                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+AddToFavourites 0 29 0
+JavascriptDisabled 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+PDFSupport 0 0 0
+RealPlayerSupport 0 0 0
+QuickTimeSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+JavaEnabled 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 3 23 270850 63 65 40115
+1 11 51 568917 15 17 35648
+2 0 0 0 19 20 19956
+3 1 1 5415 69 89 33922
+4 4 24 276265 9 12 41515
+5 2 2 10830 26 29 39142
+6 30 117 1178382 103 109 110885
+7 1 1 5415 43 45 25894
+8 19 50 437151 68 71 49682
+9 2 2 6092 19 23 25730
+10 16 16 95474 121 121 27163
+11 0 0 0 2 2 395
+12 6 6 75011 42 44 264670
+13 1 1 5378 58 59 28940
+14 6 8 129625 283 303 87901
+15 3 3 16171 6 10 52041
+16 11 11 68258 237 237 5652
+17 0 0 0 42 42 28399
+18 1 1 5415 46 47 51631
+19 3 3 11433 120 122 102545
+20 0 0 0 151 169 79940
+21 0 0 0 11 13 11977
+22 4 4 5762 275 311 53414
+23 5 24 278608 25 26 21972
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 129 348 3450452
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 5
+python 41 179365 20251031181345 0
+Go\-http\-client/ 24 21004 20251030201514 0
+no_user_agent 19 238101 20251017121003 0
+bot[\s_+:,\.\;\/\\-] 4 21718 20251021090811 0
+scrapy 2 10830 20251022063321 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 7
+js 195 2105271 0 0
+env 5 3385 0 0
+woff2 4 194224 0 0
+css 20 110600 0 0
+Unknown 121 1020625 0 0
+php 1 11939 0 0
+json 2 4408 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 11
+macosx7 3 3
+win10 92 33
+macosx14 2 1
+Unknown 7 7
+linux 9 9
+ios_iphone 39 39
+android 161 21
+androidnougat 8 8
+linuxubuntu 24 5
+macosx10 1 1
+macosx15 2 2
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 20
+firefox105.0 1 1
+chrome17.0.963.56 3 3
+firefox82.0 4 2
+chrome93.0.4577.0 1 1
+chrome60.0.3112.107 8 8
+chrome114.0.0.0 161 21
+mozilla 7 7
+chrome134.0.0.0 2 2
+safari8.0 4 4
+chrome118.0.0.0 1 1
+firefox139.0 4 4
+safari17.4.1 1 1
+chrome115.0.0.0 24 5
+safari 35 35
+firefox128.0 5 5
+chrome39.0.2171.95 1 1
+chrome139.0.0.0 5 5
+chrome141.0.0.0 79 21
+chrome137.0.0.0 1 1
+msie10.0 1 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 2
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20251021195126
+Mozilla/5.0_(compatible;_InternetMeasurement/1.0;__https://internet-measurement.com/) 20251028054440
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 55 197
+From1 8 8
+From2 1 1
+From3 0 0
+From4 65 142
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+www_google_com 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 5
+307 229 7793
+302 1 0
+404 1488 237137
+403 133 26268
+308 7 259
+END_ERRORS
+
+# URL with 400 errors - Hits - Last URL referrer
+BEGIN_SIDER_400 0
+END_SIDER_400
+
+# URL with 403 errors - Hits - Last URL referrer
+BEGIN_SIDER_403 1
+/ 133 -
+END_SIDER_403
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 591
+/next.config.js 2 -
+/system_log.php 2 -
+/flex.php 1 -
+/wan.php 1 -
+/taff.php 1 -
+/.env.dist 2 -
+/sto.php 1 -
+/apis/config/config.js 2 -
+/w.php 1 -
+/api/gql 11 -
+/13.php 1 -
+/wp2/wp-includes/wlwmanifest.xml 2 -
+/ddgg.php 1 -
+/karma.conf.json 2 -
+/filer.php 1 -
+/ffile.php 2 -
+/cfile.php 3 -
+/ab.php 1 -
+/haa.php 2 -
+/403.php 1 -
+/gdn.php 1 -
+/ut.php 3 -
+/nfile.php 2 -
+/aws.yml 2 -
+/class20.php 2 -
+/fm.php 2 -
+/gelap.php 1 -
+/configs.json 1 -
+/database.yml 2 -
+/hk.php 2 -
+/dove.php 1 -
+/media/wp-includes/wlwmanifest.xml 1 -
+/redi.php 1 -
+/gifclass.php 1 -
+/0x0x.php 2 -
+/xx.php 1 -
+/wi.php 1 -
+/config/application.yml 2 -
+/sts.php 1 -
+/nuxt.config.js 2 -
+/server-status 23 -
+/6.php 1 -
+/laravel/.env 1 -
+/.aws/config 2 -
+/.env.prod 3 -
+/cms/wp-includes/wlwmanifest.xml 2 -
+/chosen.php 1 -
+/php8.php 1 -
+/miso.php 1 -
+/settings.py 2 -
+/test2.php 1 -
+/bless5.php 1 -
+/fmk.php 1 -
+/wj.php 1 -
+/fffff.php 2 -
+/debug 1 -
+/bb2.php 1 -
+/config/autoload/global.php 2 -
+/wp-includes/js/jquery/jquery.js 1 -
+/te.php 1 -
+/usep.php 3 -
+//demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/docker-compose.dev.yml 2 -
+/x.php 1 -
+/gifclass4.php 2 -
+/bless11.php 1 -
+/shell1.php 1 -
+/tor.php 2 -
+/api/swagger.yml 2 -
+/phpsysinfo/info.php 2 -
+/css.php 1 -
+/anskrit.php 1 -
+/phpsysinfo/phpinfo.php 2 -
+//sites/all/libraries/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/anan.php 1 -
+/db.json 2 -
+/api/v2/swagger.json 2 -
+/.well-known/acme-challenge/about.php 3 -
+/sapi/debug/default/view 1 -
+/xmlrpc.php 3 -
+/wsr2.php 1 -
+//api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/akk.php 1 -
+//new/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/sito/wp-includes/wlwmanifest.xml 2 -
+/manager.php 1 -
+/graphql 12 -
+/config.json 27 -
+/phpinfo 3 -
+//lib/phpunit/phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/config/.env 3 -
+/af4.php 1 -
+/v3.php 1 -
+/apikeys.json 2 -
+/about 23 -
+/main.js 1 -
+/login.action 23 -
+/environment.ts 2 -
+/bless.php 1 -
+/thh.php 2 -
+/aa21.php 2 -
+/.docker/config.json 2 -
+/assets/config.production.json 1 -
+/bolt.php 1 -
+/.env.example 3 -
+/site/.env 1 -
+/ini.php 1 -
+/config.php 2 -
+/000.php 1 -
+/123.php 1 -
+/docker-compose.override.yml 2 -
+//phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/config.py 2 -
+/555.php 2 -
+/.git/config 30 -
+/debug/default/view.html 1 -
+/taktak.php 1 -
+/phpinfo/phpinfo.php 2 -
+/frontend/web/debug/default/view 1 -
+/api/login 2 -
+/owncloud/apps/graphapi/vendor/microsoft/microsoft-graph/tests/GetPhpInfo.php 2 -
+/swagger/index.html 13 -
+/racs3.php 1 -
+/vast.php 1 -
+/phpversion.php 2 -
+/gt.php 1 -
+//vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/app/etc/env.php 2 -
+/a1.php 1 -
+/2019/wp-includes/wlwmanifest.xml 2 -
+/Okxob.php 1 -
+//vendor/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/.env.live 2 -
+/r.php 1 -
+/aws-secret.yaml 2 -
+/nl.php 1 -
+//backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/s.php 1 -
+/alfacgiapi/perl.alfa 1 www.google.com
+//laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/wpo.php 2 -
+/config/config.js 1 -
+/test.php 3 -
+/ouh.php 1 -
+/wg.php 1 -
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 -
+/graphql/api 11 -
+/aaa.php 1 -
+/error.php 3 -
+/f6.php 2 -
+/ftp.php 1 -
+/app/config.py 2 -
+/serverless.json 2 -
+/zt2.php 1 -
+/222.php 4 -
+/pinfo.php 2 -
+/cong.php 1 -
+/classwithtostring.php 1 -
+//phpunit/phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/wfile.php 3 -
+/NewFile.php 1 -
+/env.backup 1 -
+/db.config 2 -
+/epinyins.php 1 -
+/wp/wp-includes/wlwmanifest.xml 2 -
+/database.php 2 -
+/api/v1/swagger.json 2 -
+/keys.json 2 -
+/s/1323e2231313e2133323e2836313/_/ 23 -
+/web.config 2 -
+/c.php 1 -
+/config.prod.json 1 -
+/class19.php 2 -
+/env.development.js 1 -
+/wlex.php 1 -
+/backend/phpinfo.php 2 -
+/n.php 1 -
+/uploxe.php 1 -
+/_profiler/phpinfo 6 -
+/@vite/env 23 -
+/akcc.php 1 -
+/dbconfig.php 2 -
+//vendor/phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/max.php 1 -
+/config.js 3 -
+/server_info.php 2 -
+/env.yaml 2 -
+/.env.test 2 -
+/aws/credentials.json 2 -
+/file8.php 1 -
+/ht.php 1 -
+/flower.php 1 -
+/config.yml 2 -
+/db.yaml 2 -
+/fns.php 1 -
+/kaza.php 1 -
+/404 1 -
+/he.php 3 -
+/env.production.js 1 -
+/vee.php 2 -
+/an.php 2 -
+/phpsysinfo/phpsysinfo.php 2 -
+/config/settings.json 2 -
+/debug.php 2 -
+/hook.php 2 -
+/thxt.php 1 -
+/test_info.php 2 -
+/gmo.php 2 -
+/env/.env 1 -
+/mail.php 1 -
+/wp-content/plugins/fix/up.php 2 -
+/default.php 1 -
+/assets/configs.json 1 -
+/secrets.json 2 -
+/f35.php 1 -
+/plss3.php 3 -
+/classgoto24.php 3 -
+/.aws/credentials.json 2 -
+/tgrs.php 3 -
+/docker/.env 1 -
+/debug/default/view 26 -
+/sec.php 3 -
+/actuator/env 23 -
+/functions.php 2 -
+/wa.php 2 -
+/akpc.php 1 -
+/swagger-ui.html 13 -
+/swagger/v1/swagger.json 13 -
+//wp-content/plugins/mm-plugin/inc/vendors/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+//wp-content/plugins/jekyll-exporter/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/v.php 1 -
+/admin/phpinfo.php 2 -
+//phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/ifm.php 1 -
+/hn.php 1 -
+/about.php 3 www.google.com
+/v3/api-docs 13 -
+/aves.php 1 -
+/x3.php 1 -
+/wp-load.php 1 -
+/tool/view/phpinfo.view.php 3 -
+/webjars/swagger-ui/index.html 13 -
+/zc-903.php 1 -
+/en0.php 1 -
+/ioxi-o.php 1 -
+/install.php 1 -
+/a2.php 2 -
+/web/.env 1 -
+/wp-content/plugins/hellopress/wp_filemanager.php 5 -
+/info.php 34 -
+/auth.php 1 -
+/app/.env 1 -
+/ee.php 2 -
+/gof.php 1 -
+/phpinfo.html 2 -
+/ssss.php 3 -
+/jmfi2.php 1 -
+/config/parameters.yml 2 -
+/class-wp.php 1 -
+/wpc.php 1 -
+/new.php 1 -
+/zzz.php 1 -
+/index.php 3 -
+/jf1d22.php 1 -
+/gel4y.php 1 -
+/test 1 -
+/7.php 1 -
+/production.json 1 -
+/config.development.json 1 -
+//blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/333.php 2 -
+/zwso.php 1 -
+/class17.php 1 -
+/angular-cli.json 2 -
+/database.json 2 -
+/index.js 1 -
+/file18.php 3 -
+/mlex.php 3 -
+/config/mail.php 2 -
+/iov.php 1 -
+/mds.php 1 -
+/server 23 -
+/file21.php 4 -
+/_all_dbs 23 -
+/serverless.yaml 2 -
+/fwe.php 1 -
+/.env.development 2 -
+/api/user 2 -
+/jsp.php 1 -
+/env.prod.js 1 -
+/docker-compose.yml 2 -
+/wo.php 3 -
+/api/config.js 3 -
+/app_dev.php/_profiler/phpinfo 1 -
+//cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/blog/wp-includes/wlwmanifest.xml 2 -
+/wh.php 1 -
+/2018/wp-includes/wlwmanifest.xml 1 -
+/dlu.php 1 -
+/wp-includes/fonts/about.php 1 -
+/lala.php 1 -
+/shop/wp-includes/wlwmanifest.xml 2 -
+/sk25_1.php 1 -
+/tiny.php 1 -
+/1.php 3 -
+/keu.php 1 -
+/pent.php 1 -
+/docker-compose.yaml 2 -
+/public/phpinfo.php 2 -
+/news/wp-includes/wlwmanifest.xml 2 -
+/ton.php 3 -
+/agvgyufv.php 1 www.google.com
+/gi.php 2 -
+/apis/controllers/users.js 2 -
+/opop.php 1 -
+/config.production.json 1 -
+/assets/env.js 1 -
+/cs.php 1 -
+/fass.php 1 -
+/application.yml 2 -
+/2020/wp-includes/wlwmanifest.xml 1 -
+/angular.json 2 -
+/naxc.php 2 -
+/ea.php 1 -
+/st.php 1 -
+/dashboard/phpinfo.php 2 -
+//phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/phpinfodev.php 2 -
+/bless3.php 1 -
+/snus.php 1 -
+//lib/phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+//wp-content/plugins/cloudflare/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/ilex.php 3 -
+/ 2 https://www.google.com/
+/num.php 1 -
+/swagger.json 15 -
+/11.php 1 -
+/makeasmtp.php 1 -
+/CLA.php 1 -
+/ssh-config.json 1 -
+/server.js 2 -
+/v2/_catalog 23 -
+/fe5.php 1 -
+/config/settings.yml 2 -
+/php.php 1 -
+/simp.php 1 -
+//vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/v4.php 2 -
+/g.php 1 -
+/composer.json 2 -
+/indo.php 1 -
+/efile.php 1 -
+/pp.php 1 -
+/owl.php 1 -
+/.DS_Store 24 -
+/wp-admin/maint/index.php 1 -
+/api-docs/swagger.json 13 -
+/fileas.php 2 -
+/webpack.dev.js 2 -
+/nij.php 1 -
+/wp-includes/wlwmanifest.xml 2 -
+/env.js 1 -
+/ahax.php 1 -
+/simple.php 1 -
+/C1.php 1 -
+/swagger/swagger-ui.html 13 -
+/33.php 2 -
+/api 11 -
+/aa.php 2 -
+/file2.php 3 -
+//lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/core/.env 1 -
+/swagger.yaml 2 -
+/.env.staging 2 -
+/er8.php 1 -
+/admin 1 -
+/wp-aaa.php 1 -
+/web/debug/default/view 1 -
+/wek.php 1 -
+/x0.php 1 -
+/wp-config.php 2 -
+/asas.php 1 -
+/.. 5 -
+/ALFA_DATA/alfacgiapi/perl.alfa 1 www.google.com
+/actives.php 1 -
+/ckk.php 2 -
+/config.yaml 2 -
+/frontend_dev.php/$ 1 -
+/.env.production 3 -
+/.env.bak 2 -
+/t.php 1 -
+/bless2.php 1 -
+/.env-config.js 2 -
+/admin/server_info.php 2 -
+/config.local.json 1 -
+/userfuns.php 1 www.google.com
+/.vscode/sftp.json 24 -
+/geck.php 2 -
+/backend/.env 1 -
+/app.js 3 -
+/keys.yml 2 -
+/index.html 2 -
+/alfa.php 2 -
+/.env.production.local 2 -
+/444.php 2 -
+/011i.php 1 -
+/build.php 2 -
+/klex.php 3 -
+/web/wp-includes/wlwmanifest.xml 2 -
+/web.php 2 -
+/AxAo.php 1 -
+/2clas.php 3 -
+/src/config.js 1 -
+/wp1/wp-includes/wlwmanifest.xml 2 -
+/awc_prod.sql 1 -
+/wordpress/ 1 -
+/dfre.php 1 -
+/.env.js 2 -
+/xxa.php 1 -
+/.env.dev.local 2 -
+/0x.php 1 -
+/opts.php 1 -
+/abcd.php 2 -
+//www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/pn.php 1 -
+/zhidagen.php 1 -
+/file4.php 2 -
+/zde.php 1 -
+/a3.php 1 -
+/app/config/parameters.yml 2 -
+/mpxct.php 1 -
+/.env.old 1 -
+/nc.php 1 -
+/config/email.js 2 -
+/wp.php 2 -
+/wp-plain.php 2 www.google.com
+/we.php 3 -
+/inde.php 3 -
+/wp-content/themes/seotheme/db.php 2 www.google.com
+/web/api/config.js 1 -
+/wsd.php 2 -
+/zc-749.php 1 -
+/file7.php 1 -
+/v2/api-docs 13 -
+/vanta.php 1 -
+/web/config.js 1 -
+/about3.php 2 -
+/okxoby.php 1 -
+/r79.php 1 -
+/a.php 1 -
+/filesss.php 4 -
+/ws.php 2 -
+/admin/.env 1 -
+/fex.php 1 -
+/wf.php 1 -
+/api/swagger.json 15 -
+/file9.php 2 -
+/webpack.config.js 2 -
+/system_info.php 2 -
+/wb.php 2 -
+/wd.php 1 -
+/www/.env 1 -
+/doti.php 1 -
+/cccc.php 1 -
+/10.php 1 -
+/phpinfo.txt 2 -
+/configuration.php 2 -
+/520.php 1 -
+/aws/config.json 2 -
+/gunkidtt.php 1 www.google.com
+/wordpress/wp-includes/wlwmanifest.xml 2 -
+/robots.txt 2 -
+/.env.backup 3 -
+/men.php 1 -
+/yellow.php 3 -
+/resp.php 1 -
+/sftp-config.json 1 -
+/php_info.php 2 -
+/fw.php 1 -
+/ropyx.php 1 -
+//lib/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/api/documentation.json 2 -
+/lol.php 1 -
+/phpinfo.php 9 -
+/wpls.php 1 -
+/phpinfo/info.php 2 -
+/z.php 1 -
+/src/api/config.js 1 -
+//protected/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/.aws/credentials 2 -
+/db.yml 2 -
+/api/graphql 11 -
+/app/config.js 1 -
+/ff2.php 1 -
+/file88.php 3 -
+/.env.development.local 2 -
+/config/local.yml 2 -
+/settings.json 1 -
+/radio.php 1 -
+/gelay.php 1 -
+/.aws/credentials.yaml 2 -
+/swagger.yml 2 -
+/nfmr.php 1 -
+/config/smtp.js 2 -
+/.aws/credentials.yml 2 -
+/shellalfa.php 1 -
+/configuration.json 1 -
+/bak.php 1 -
+/file15.php 2 -
+/rrr.php 2 -
+/aghbvr.php 1 -
+/blex.php 2 -
+/lv.php 2 -
+/2.php 2 -
+/class-config.php 1 -
+/size.php 1 -
+//admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/.gitconfig 2 -
+/aj.php 1 -
+/site/wp-includes/wlwmanifest.xml 2 -
+/himu.php 1 -
+/serverless.yml 2 -
+/12.php 1 -
+/wp-gr.php 1 -
+/api/swagger.yaml 2 -
+/mailer/send 1 -
+/atomlib.php 1 -
+/xsox.php 1 -
+/config.dev.json 1 -
+/031.php 3 -
+/gm.php 1 -
+/api/.env 8 -
+/.env.prod.local 2 -
+/lock360.php 2 -
+/hi.php 1 -
+/asd67.php 1 -
+/finny.php 1 -
+/cool.php 1 -
+/tox.php 1 -
+/_phpinfo.php 1 -
+/ar.php 2 -
+/.travis.yml 2 -
+/article.php 1 -
+/settings.php 2 -
+/3.php 2 -
+/vue.config.js 2 -
+/.AWS_/credentials 1 -
+/webpack.prod.js 2 -
+/ioxi-o2.php 1 -
+/ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application 23 -
+/.circleci/configs/development.yml 2 -
+/alpa.php 3 -
+/config/packages/mailer.yaml 2 -
+/.env.local 3 -
+/appsettings.json 2 -
+/030.php 2 -
+/pass.php 1 -
+//wp-content/plugins/dzs-videogallery/class_parts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/_profiler/open 1 -
+/main.php 2 -
+/db.php 2 -
+/k.php 1 -
+/website/wp-includes/wlwmanifest.xml 2 -
+//panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/test/wp-includes/wlwmanifest.xml 2 -
+//dev/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/enclas.php 2 -
+/file1.php 3 -
+/phpsysinfo.php 2 -
+//old/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/we2.php 1 -
+/backup.sql 1 -
+/config/params.php 2 -
+/telescope/requests 23 -
+/133.php 1 -
+/wc.php 1 -
+/alam.php 1 -
+/env.dev.js 1 -
+/mail/send 1 -
+/api-keys.json 2 -
+/shoha.php 2 -
+/goat.php 1 -
+/hexx.php 1 -
+/.env.stage 2 -
+/env.test.js 1 -
+/wsx.php 1 -
+/huangs.php 1 -
+/RsR.php 1 -
+/wk.php 1 -
+/aipoyp.php 1 -
+/gatsby-config.js 2 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 44
+5.226.137.4 18 45 354325 20251029062121
+136.117.120.43 16 56 596134 20251001163939
+45.94.31.238 8 8 111748 20251031084912
+34.168.151.174 6 46 541700 20251001014340
+34.11.205.87 5 5 27216 20251002101300
+136.117.77.202 5 5 27216 20251002101140
+37.59.187.20 5 24 278608 20251025230903
+34.168.216.218 5 5 27215 20251001085108
+35.233.227.110 5 5 27218 20251002100717
+15.181.97.46 5 5 69596 20251017120953
+3.90.220.42 1 1 677 20251009094953
+128.199.29.137 1 1 5415 20251004125616
+213.109.202.57 1 1 5415 20251015062433
+35.199.174.208 3 23 270850 20251001014310
+185.247.137.200 1 1 5415 20251028054440
+176.65.149.195 1 1 13824 20251024102827
+107.175.255.64 1 2 53971 20251023142100
+167.99.80.43 1 1 5415 20251001080219
+209.97.131.201 1 1 5415 20251005070914
+161.35.177.52 1 1 5415 20251013052751
+87.236.176.96 1 1 5415 20251004181353
+35.233.253.40 3 23 270850 20251001041804
+206.168.34.117 1 1 5378 20251005132618
+199.45.155.107 1 1 5378 20251011154337
+188.29.111.72 3 34 281907 20251023083050
+35.183.197.210 1 1 677 20251001064501
+167.99.181.188 1 1 5415 20251027090434
+103.109.103.44 2 2 10866 20251001083838
+101.91.110.26 1 1 5428 20251031140214
+154.36.117.21 1 2 53971 20251008140936
+64.227.101.109 1 1 5415 20251024032958
+136.117.1.113 3 23 270850 20251001062221
+137.184.170.201 1 1 5415 20251010043515
+206.217.206.119 1 1 5415 20251001145930
+68.183.124.82 1 1 5415 20251002150220
+167.99.163.166 4 4 5762 20251010224338
+142.93.121.160 1 1 5415 20251003062735
+101.91.110.35 1 1 5425 20251031140210
+206.168.34.217 1 1 5378 20251012191519
+34.82.23.192 5 5 27217 20251002010138
+167.94.138.116 2 2 10756 20251021195126
+176.65.148.212 1 1 13824 20251025162551
+101.91.110.131 1 1 5415 20251031140203
+136.144.43.172 1 1 677 20251017195926
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 21
+20251001 42 182 2005350 12
+20251002 21 21 114282 5
+20251003 1 1 5415 1
+20251004 2 2 10830 2
+20251005 2 2 10793 2
+20251008 1 2 53971 1
+20251009 1 1 677 1
+20251010 5 5 11177 2
+20251011 1 1 5378 1
+20251012 1 1 5378 1
+20251013 1 1 5415 1
+20251015 1 1 5415 1
+20251017 6 6 70273 2
+20251021 1 1 5378 1
+20251023 4 36 335878 2
+20251024 2 2 19239 2
+20251025 6 25 292432 2
+20251027 1 1 5415 1
+20251028 1 1 5415 1
+20251029 18 45 354325 1
+20251031 11 11 128016 4
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 4
+0s-30s 42
+2mn-5mn 2
+30mn-1h 1
+30s-2mn 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 16
+/login 86 584155 41 34
+/_next/image 21 420800 0 5
+/.env 5 3385 4 3
+/fulfillment 3 13769 1 1
+/package.json 2 4408 0 1
+/signup 2 226 0 1
+/items 1 113 0 0
+/api/auth/providers 1 412 0 0
+/api/auth/csrf 1 80 0 0
+/charges 1 115 0 0
+/ 1 11939 0 0
+/users 1 113 0 1
+/clients 1 115 0 0
+/api/auth/signin/google 1 496 0 0
+/invoices 1 116 0 0
+/storage 1 115 0 0
+END_SIDER

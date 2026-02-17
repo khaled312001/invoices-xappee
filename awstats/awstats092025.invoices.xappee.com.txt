@@ -1,0 +1,591 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202509 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.invoices.xappee.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 30
+POS_GENERAL 2072                
+POS_TIME 2754                
+POS_VISITOR 14316               
+POS_DAY 17054               
+POS_DOMAIN 3503                
+POS_LOGIN 3733                
+POS_ROBOT 3888                
+POS_WORMS 4320                
+POS_EMAILSENDER 4451                
+POS_EMAILRECEIVER 4594                
+POS_SESSION 17563               
+POS_SIDER 17751               
+POS_FILETYPES 4729                
+POS_DOWNLOADS 4904                
+POS_OS 4952                
+POS_BROWSER 5180                
+POS_SCREENSIZE 5778                
+POS_UNKNOWNREFERER 5852                
+POS_UNKNOWNREFERERBROWSER 6263                
+POS_ORIGIN 6379                
+POS_SEREFERRALS 6516                
+POS_PAGEREFS 6694                
+POS_SEARCHWORDS 6842                
+POS_KEYWORDS 6994                
+POS_MISC 2417                
+POS_ERRORS 7053                
+POS_CLUSTER 3589                
+POS_SIDER_400 13945               
+POS_SIDER_403 7204                
+POS_SIDER_404 7294                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20251001005323 385 68929 3667767946345
+FirstTime 20250901030807
+LastTime 20250930200854
+LastUpdate 20251001202903 385 384 0 0 0
+TotalVisits 78                  
+TotalUnique 68                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 69                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+DirectorSupport 0 0 0
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+PDFSupport 0 0 0
+JavascriptDisabled 0 0 0
+AddToFavourites 0 34 0
+RealPlayerSupport 0 0 0
+FlashSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+TotalMisc 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 3 4 91167 3 3 256
+1 4 24 276274 8 10 28503
+2 3 3 16245 10 12 22248
+3 6 6 32490 13 32 4867
+4 5 5 27092 10 12 18057
+5 16 16 28766 123 143 46249
+6 5 5 27218 7 8 17448
+7 1 1 5415 10 29 21921
+8 6 7 75668 280 283 289629
+9 25 57 365327 704 710 113947
+10 80 111 728842 65 88 65048
+11 55 113 1494611 14 19 62910
+12 31 61 399932 10 29 38487
+13 28 78 1181582 43 64 61929
+14 46 75 435185 97 136 74138
+15 7 47 547115 10 15 605828
+16 10 70 1348794 22 84 2085788
+17 4 5 70216 24 26 56505
+18 1 1 5421 18 18 38498
+19 0 0 0 16 16 33235
+20 7 7 27217 27 27 44018
+21 10 10 54434 20 37 4961
+22 0 0 0 120 149 585516
+23 1 1 18598 96 147 671597
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 354 707 7257609
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 7
+^mozilla\/5\.0$ 153 1194941 20250929222307 0
+bot[\s_+:,\.\;\/\\-] 80 2076572 20250930172546 0
+python 25 135350 20250930202732 0
+no_user_agent 17 236747 20250901082956 0
+Go\-http\-client/ 5 3385 20250930145230 0
+scrapy 2 10830 20250922140212 0
+(firefox/)([0-9]\.|[0-1][0]\.) 2 554842 20250922150010 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 6
+woff2 8 388448 0 0
+js 318 3410071 0 0
+php 8 36382 0 0
+css 27 144437 0 0
+Unknown 342 3275563 0 0
+env 4 2708 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 13
+macosx6 1 1
+android 161 21
+winxp 1 1
+winnt 1 1
+Unknown 14 14
+macosx 2 2
+macosx15 3 3
+win10 459 249
+winlong 2 2
+ios_iphone 35 35
+linux 23 22
+win7 1 1
+macosx14 4 2
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 29
+chrome32.0.2019.89 1 1
+firefox77.0 2 2
+chrome114.0.0.0 161 21
+chrome117.0.0.0 3 3
+chrome116.0.0.0 26 6
+chrome4.0.223.2 1 0
+firefox105.0 2 2
+firefox139.0 4 4
+safari2.0.2 1 1
+mozilla 20 20
+chrome112.0.0.0 1 1
+chrome17.0.963.66 1 1
+safari2.0.4 1 1
+chrome14.0.809.0 1 1
+firefox117.0 1 1
+chrome139.0.0.0 189 138
+chrome81.0.4044.129 1 1
+Unknown 2 2
+chrome83.0.4093.0 1 1
+msie7.0 1 1
+chrome140.0.0.0 216 96
+safari 35 35
+chrome137.0.0.0 1 1
+chrome5.0.342.5 1 1
+firefox128.0 5 5
+chrome130.0.0.0 23 4
+chrome11.0.672.2 1 1
+chrome5.0.354.0 1 1
+safari14.0 4 2
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 4
+ct-apache-fast/1.0 20250930200854
+Mozilla/5.0_(compatible;_Let's_Encrypt_validation_server;__https://www.letsencrypt.org) 20250919052317
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20250930145551
+Mozilla/5.0_(compatible;_InternetMeasurement/1.0;__https://internet-measurement.com/) 20250927025834
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 1
+ct-apache-fast/1.0 20250930200854
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 93 256
+From1 0 0
+From2 2 2
+From3 0 0
+From4 259 449
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 2
+www_google_com 1 1
+google_com 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 6
+308 165 3693
+307 1046 43285
+404 443 128958
+403 106 20497
+400 5 199
+302 3 0
+END_ERRORS
+
+# URL with 403 errors - Hits - Last URL referrer
+BEGIN_SIDER_403 1
+/ 106 -
+END_SIDER_403
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 168
+/app/config.js 2 -
+/.well-known/about.php 1 -
+/.well-known/pki-validation/xmrlpc.php 1 -
+/.well-known/wp-login.php 1 -
+/config.local.json 2 -
+/.env.prod 2 -
+/assets/config.production.json 1 -
+/config.json 7 -
+//lib/phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+//panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/telescope/requests 5 -
+/__tests__/test-become/.env 2 -
+/.well-known/pki-validation/wp-login.php 1 -
+/app/config/parameters.yml 1 -
+/env.prod.js 2 -
+/_next/static/chunks/8445.5b0f4fe717c5b99c.js 1 -
+/.well-known/radio.php 1 -
+/.well-known/acme-challenge/radio.php 1 -
+/actuator/env 5 -
+/2020/wp-includes/wlwmanifest.xml 1 -
+/v2/_catalog 5 -
+/.well-known/acme-challenge/atomlib.php 1 -
+/app.js 2 -
+//blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/.env.production 2 -
+/_next/static/chunks/8743e2b9e901150f.js 1 -
+/index.php 2 -
+/.well-known/pki-validation/file.php 1 -
+//api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/sito/wp-includes/wlwmanifest.xml 8 -
+/_next/static/chunks/6842-f4c88544548c5a57.js 1 -
+/wordpress/ 2 -
+/news/wp-includes/wlwmanifest.xml 8 -
+/_next/static/chunks/image 1 -
+/.git/config 10 -
+/.well-known/pki-validation/dbform69.php 1 -
+/.well-known/as.php 1 -
+/.well-known/pki-validation/cloud.php 1 -
+/@vite/env 5 -
+/config/config.js 2 -
+/cms/wp-includes/wlwmanifest.xml 8 -
+/ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application 5 -
+//sites/all/libraries/mailchimp/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/2019/wp-includes/wlwmanifest.xml 8 -
+//lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/ 4 https://www.google.com/
+/production.json 1 -
+/.well-known/acme-challenge/admin.php 1 -
+/parameters.yml 1 -
+/owncloud/apps/graphapi/vendor/microsoft/microsoft-graph/tests/GetPhpInfo.php 4 -
+/.well-known/wso112233.php 1 -
+//demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/wp-includes/wlwmanifest.xml 8 -
+/.well-known/ 1 -
+/.well-known/ALFA_DATA/alfacgiapi/perl.alfa.php 1 -
+//phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/sitemap.xml 1 -
+/.well-known/acme-challenge/cloud.php 1 -
+//wp-content/plugins/dzs-videogallery/class_parts/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/web/debug/default/view 2 -
+/test/wp-includes/wlwmanifest.xml 8 -
+//protected/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/env.development.js 2 -
+/main.js 2 -
+/web/config.js 2 -
+/env.test.js 2 -
+/phpinfo.php 4 -
+/.well-known/file.php 1 -
+/configuration.json 2 -
+/.well-known/pki-validation/afnew.php 1 -
+/.well-known/pki-validation/install.php 1 -
+//phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/debug/default/view 11 -
+/api/config.js 2 -
+/.well-known/link.php 1 -
+/wp2/wp-includes/wlwmanifest.xml 8 -
+/_next/static/chunks/5b0f4fe717c5b99c.js 1 -
+//vendor/phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/.well-known/gecko-litespeed.php 1 -
+/web/api/config.js 2 -
+/config/parameters.yml 1 -
+/server 5 -
+/config.js 2 -
+/wp/wp-includes/wlwmanifest.xml 8 -
+/2018/wp-includes/wlwmanifest.xml 7 -
+/site/wp-includes/wlwmanifest.xml 8 -
+/.well-known/log.php 1 -
+/.well-known/pki-validation/about.php 1 -
+//vendor/phpunit/phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/app_dev.php/_profiler/open 2 -
+/config.prod.json 2 -
+/.well-known/info.php 1 -
+//wp-content/plugins/mm-plugin/inc/vendors/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/frontend/web/debug/default/view 1 -
+/s/1323e2231313e2133323e2836313/_/ 5 -
+/redmine/.env 2 -
+/info.php 8 -
+//wp-content/plugins/cloudflare/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/assets/configs.json 1 -
+/login 1 -
+/config.production.json 2 -
+//www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/_next/static/chunks/9812-8afb3cf5770c3cd2.js 1 -
+/_all_dbs 5 -
+//new/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+//phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+//lib/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/website/wp-includes/wlwmanifest.xml 8 -
+/media/wp-includes/wlwmanifest.xml 7 -
+/_profiler/phpinfo 2 -
+//wp-content/plugins/jekyll-exporter/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+//lib/phpunit/phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/.well-known/upfile.php 1 -
+/sapi/debug/default/view 2 -
+/.DS_Store 7 -
+/.. 10 -
+//vendor/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/configs.json 2 -
+//phpunit/phpunit/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/.well-known/content.php 1 -
+//admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/env.js 2 -
+/.well-known/themes.php 1 -
+/src/config.js 2 -
+/ssh-config.json 2 -
+/config.dev.json 2 -
+/.well-known/pki-validation/cux.php 1 -
+/.well-known/acme-challenge/xmrlpc.php 1 -
+/.well-known/admin.php 1 -
+/_profiler/open 1 -
+/index.js 2 -
+//vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/shop/wp-includes/wlwmanifest.xml 8 -
+/src/api/config.js 2 -
+/about 5 -
+/env.production.js 2 -
+/.well-known/acme-challenge/install.php 1 -
+//backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/.well-known/acme-challenge/plugins.php 1 -
+/.vscode/sftp.json 7 -
+/blog/wp-includes/wlwmanifest.xml 8 -
+/frontend_dev.php/$ 2 -
+//cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/.well-known/acme-challenge/makeasmtp.php 1 -
+/debug/default/view.html 2 -
+//dev/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/.well-known/xoxo.php 1 -
+/settings.json 2 -
+/.aws/credentials 2 -
+/wp1/wp-includes/wlwmanifest.xml 8 -
+/.well-known/acme-challenge/ 1 -
+/config.development.json 2 -
+/env.dev.js 2 -
+/login.action 5 -
+/sftp-config.json 1 -
+/.well-known/acme-challenge/about.php 1 -
+/.well-known/pki-validation/ 1 -
+/server-status 5 -
+//laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/api/.env 5 -
+//old/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 1 https://www.google.com/
+/.well-known/acme-challenge/autoload_classmap.php 1 -
+/.well-known/classwithtostring.php 1 -
+/web/wp-includes/wlwmanifest.xml 8 -
+/wordpress/wp-includes/wlwmanifest.xml 8 -
+/assets/env.js 2 -
+/app_dev.php/_profiler/phpinfo 2 -
+/xmlrpc.php 8 -
+END_SIDER_404
+
+# URL with 400 errors - Hits - Last URL referrer
+BEGIN_SIDER_400 1
+/_next/image 5 https://invoices.xappee.com/fulfillment/upload
+END_SIDER_400
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 69
+154.21.15.10 133 184 1023130 20250910111836
+188.29.111.13 33 61 383488 20250923115711
+197.54.37.169 32 62 371870 20250916103942
+188.29.111.12 16 27 209734 20250923121654
+197.54.84.64 15 66 616094 20250929103117
+34.187.240.241 11 51 568914 20250922163106
+34.83.79.105 8 28 298061 20250922163031
+34.187.173.236 8 28 298062 20250922154304
+34.145.125.163 5 5 27217 20250921204632
+154.28.229.195 5 25 274068 20250930145253
+142.93.124.187 1 1 5415 20250929100330
+202.76.162.74 1 1 536244 20250903133051
+47.129.108.34 1 1 87 20250919052317
+104.164.126.157 2 2 10830 20250919172423
+44.197.249.219 1 1 5415 20250903024346
+23.178.112.105 2 2 174 20250919052316
+146.174.182.249 1 1 18598 20250919232308
+118.109.217.193 2 2 10847 20250909045417
+69.10.49.199 5 5 69596 20250901082947
+3.237.69.17 1 1 5415 20250902030610
+44.223.81.79 1 1 5415 20250904030843
+107.172.195.188 1 1 5415 20250930145228
+138.68.145.94 1 1 5415 20250901134123
+146.174.191.66 0 1 657 
+146.174.178.219 1 1 5412 20250903142512
+185.176.50.92 1 2 53971 20250909004619
+146.174.179.5 1 1 536244 20250919162041
+3.239.231.143 1 1 5415 20250903024344
+24.199.120.190 1 1 5415 20250923091729
+23.234.80.41 1 1 5415 20250930145716
+62.210.119.253 2 2 0 20250930200854
+13.216.3.92 1 1 5415 20250901030809
+185.247.137.115 1 1 5415 20250927025834
+66.132.153.125 1 1 5378 20250930145551
+34.168.248.65 3 23 270850 20250920011329
+138.68.148.202 1 1 5415 20250921072619
+3.90.187.2 4 23 278608 20250919110914
+138.197.92.248 1 1 5415 20250922125516
+35.197.44.52 3 23 270850 20250922162907
+52.14.92.239 1 1 87 20250919052317
+209.87.169.229 1 1 677 20250926104050
+209.38.197.122 1 1 5415 20250926111518
+158.222.121.4 1 2 53971 20250916172214
+146.174.187.76 1 1 18598 20250903002745
+18.142.107.36 1 1 677 20250903131804
+104.198.107.87 5 5 27220 20250921210958
+35.230.5.91 5 5 27219 20250920052810
+146.174.168.208 1 1 536244 20250918112539
+91.134.91.17 1 1 5424 20250921012323
+13.214.131.196 1 1 87 20250919052317
+13.50.17.242 1 1 87 20250919052317
+104.164.173.54 1 1 5415 20250919172404
+157.20.32.222 1 1 677 20250921105850
+3.222.165.167 2 2 10830 20250926043111
+164.92.223.97 1 1 5415 20250920152822
+3.138.107.211 1 1 87 20250919052317
+54.159.118.155 1 1 5415 20250901030807
+202.76.163.147 1 1 18598 20250918004737
+172.189.56.43 1 1 5421 20250916184714
+134.209.198.254 1 1 5415 20250915083501
+85.203.15.42 1 1 677 20250924053555
+51.20.34.52 1 1 87 20250919052316
+35.197.59.221 3 23 270850 20250922154741
+35.230.127.173 5 5 27218 20250921060338
+44.193.220.209 1 1 5415 20250904030840
+35.94.140.60 1 1 87 20250919052317
+54.221.135.72 1 1 5415 20250902030612
+35.163.96.44 1 1 87 20250919052317
+164.90.192.49 1 1 5415 20250912044011
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 20
+20250901 8 8 85841 4
+20250902 2 2 10830 2
+20250903 6 7 572418 6
+20250904 2 2 10830 2
+20250909 49 89 536929 4
+20250910 87 99 551019 2
+20250912 1 1 5415 1
+20250915 23 53 373811 2
+20250916 12 13 62866 3
+20250918 2 2 554842 2
+20250919 19 38 850565 14
+20250920 9 29 303484 3
+20250921 33 33 174808 9
+20250922 19 139 1630515 7
+20250923 50 89 598637 4
+20250924 1 1 677 1
+20250926 4 4 16922 3
+20250927 1 1 5415 1
+20250929 16 67 621509 3
+20250930 10 30 290276 5
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 5
+30s-2mn 1
+30mn-1h 2
+5mn-15mn 3
+2mn-5mn 1
+0s-30s 71
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 31
+/login 93 522022 51 39
+/_next/image 43 2297702 6 13
+/api/auth/session 28 24976 5 5
+/fulfillment 28 115849 2 0
+/items 23 19413 0 1
+/storage 19 43522 0 1
+/fulfillment/upload 14 212842 0 1
+/clients 14 7482 0 0
+/invoices 14 6128 0 0
+/charges 13 3076 0 1
+/print/68c158390ebec721ecf6d219/storage 1 167 0 0
+/api/auth/csrf 3 240 0 0
+/clients/Prime%20Footwear/invoices 1 155 0 0
+/clients/Customer/invoices 1 147 0 0
+/clients/Dr%20Cem%20Baysal/invoices 1 156 0 0
+/.env 4 2708 4 4
+/print/68c158410ebec721ecf6d223/storage 1 167 0 0
+/api/auth/providers 3 1236 0 0
+/ 8 36382 0 0
+/api/auth/signin/google 3 1488 0 0
+/items/upload 4 2601 0 0
+/clients/Interior%20decor/invoices 1 155 0 0
+/clients/xappee/invoices 1 145 0 0
+/.well-known/acme-challenge/Mvya90oXQ8FhWpkwF-LXbXRMOOGyYkVXlKt1MLiqTBw 5 435 4 5
+/clients/mossodor/invoices 1 147 0 0
+/signup 7 11389 1 3
+/invoices/add 2 242 0 0
+/clients/ixl/invoices 1 142 0 0
+/.well-known/acme-challenge/vq424DvzjEIzTRw7cAdJ9BFAHOvr-gFBAfwRQuGkJDI 5 435 5 4
+/users 11 2959 0 1
+/clients/seavaa/invoices 1 145 0 0
+END_SIDER
