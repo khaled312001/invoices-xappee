@@ -6,18 +6,6 @@ import {
   loginPassword,
   signout,
 } from "@/lib/services/auth.service";
-import { ro } from "date-fns/locale";
-
-const googleProvider = GoogleProvider({
-  clientId: process.env.GOOGLE_OAUTH_CLIENT_ID || "",
-  clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET || "",
-  authorization: {
-    params: {
-      scope:
-        "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
-    },
-  },
-});
 
 const credentialsProvider = CredentialsProvider({
   name: "Credentials",
@@ -81,7 +69,23 @@ const events = {
   },
 };
 
-const providers = [googleProvider, credentialsProvider];
+const providers: any[] = [credentialsProvider];
+
+// Only add Google provider when credentials are configured
+if (process.env.GOOGLE_OAUTH_CLIENT_ID && process.env.GOOGLE_OAUTH_CLIENT_SECRET) {
+  providers.unshift(
+    GoogleProvider({
+      clientId: process.env.GOOGLE_OAUTH_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET,
+      authorization: {
+        params: {
+          scope:
+            "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
+        },
+      },
+    })
+  );
+}
 
 export const AuthPages = {
   signIn: "/login",

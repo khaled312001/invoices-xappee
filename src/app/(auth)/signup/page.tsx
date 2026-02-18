@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, Suspense } from "react";
 import ContinueWithGoogle from "@/components/auth/continue-with-google";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
@@ -28,7 +28,7 @@ const signupSchema = z
     path: ["confirmPassword"],
   });
 
-export default function SignupPage() {
+function SignupContent() {
   const [status, setStatus] = useState<"loading" | "idle">("idle");
   const [error, setError] = useState<string | null>(null);
   const searchParams = useSearchParams();
@@ -176,3 +176,12 @@ export default function SignupPage() {
     </div>
   );
 }
+
+export default function SignupPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center py-12"><Loader2 className="animate-spin" /></div>}>
+      <SignupContent />
+    </Suspense>
+  );
+}
+

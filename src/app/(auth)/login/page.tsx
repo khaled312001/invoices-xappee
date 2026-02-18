@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { z } from "zod";
@@ -17,7 +17,7 @@ const loginSchema = z.object({
   password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
-export default function LoginPage() {
+function LoginContent() {
   const [status, setStatus] = useState<"loading" | "idle">("idle");
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState<string>("");
@@ -69,7 +69,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex items-center justify-center py-12 ">
-     <Logo className="absolute top-0 left-0 m-10 scale-90"/>
+      <Logo className="absolute top-0 left-0 m-10 scale-90" />
       <div className="mx-auto grid w-[350px] gap-6">
         <div className="grid gap-2 text-center">
           <h1 className="text-3xl font-bold">Login</h1>
@@ -134,3 +134,12 @@ export default function LoginPage() {
     </div>
   );
 }
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center py-12"><Loader2 className="animate-spin" /></div>}>
+      <LoginContent />
+    </Suspense>
+  );
+}
+
