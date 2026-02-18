@@ -16,6 +16,7 @@ const ADMINS: any = {
   "kdxappee@gmail.com": true,
   "hadeerelnaghy2@gmail.com": true,
   "hadeerxappee@gmail.com": true,
+  "khaledahmedhaggagy@gmail.com": true,
   "xappeeteamegypt@gmail.com": true,
 };
 
