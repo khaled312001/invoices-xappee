@@ -63,13 +63,19 @@ const callbacks = {
     if (token.userToken) {
       session.userToken = token.userToken;
     }
-    if (token._id) {
-      session.user = {
-        ...session.user,
-        _id: token._id,
-        role: token.role,
-        client: token.client
-      };
+
+    // Initialize session.user if it doesn't exist
+    if (!session.user) session.user = {};
+
+    // Copy data from token if available
+    if (token._id) session.user._id = token._id;
+    if (token.role) session.user.role = token.role;
+    if (token.client) session.user.client = token.client;
+
+    // Force admin role for these specific emails (Persistent Fix)
+    const ADMIN_EMAILS = ["khaledahmedhaggagy@gmail.com", "xappeeteamegypt@gmail.com"];
+    if (session.user?.email && ADMIN_EMAILS.includes(session.user.email)) {
+      session.user.role = "admin";
     }
 
     return session;
