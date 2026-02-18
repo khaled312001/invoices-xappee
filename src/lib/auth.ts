@@ -5,7 +5,7 @@ import {
   authCallback,
   loginPassword,
   signout,
-} from "@/lib/services/auth.service";
+} from "@/lib/services/auth-actions";
 
 const credentialsProvider = CredentialsProvider({
   name: "Credentials",
@@ -20,25 +20,36 @@ const credentialsProvider = CredentialsProvider({
         credentials.password
       );
 
-      if (status === 200 && data.user && data.token) {
+      if ((status === 200 || status === 201) && data?.user && data?.token) {
         return { ...data.user, userToken: data.token };
       }
+      return null;
     } catch (error) {
       console.error("Authorize error:", error);
       return null;
     }
-    return null;
   },
 });
 
 const callbacks = {
   async jwt({ token, user }: any) {
     if (user) {
-      const { data } = await authCallback(user.email, user.name, user.image);
-      token._id = data.user._id;
-      token.role = data.user.role;
-      token.client = data.user.client;
-      token.userToken = data.token;
+      try {
+        const result = await authCallback(user.email, user.name, user.image);
+        const { status, data } = result;
+
+        if ((status === 200 || status === 201) && data?.user && data?.token) {
+          token._id = data.user._id;
+          token.role = data.user.role;
+          token.client = data.user.client;
+          token.userToken = data.token;
+        } else {
+          console.error("Auth callback failed or returned incomplete data", { status, data });
+          // We return the token as is, but it will lack userToken, failing the session check.
+        }
+      } catch (error) {
+        console.error("Error in authCallback (JWT):", error);
+      }
     }
     return token;
   },
@@ -57,11 +68,13 @@ const callbacks = {
 const events = {
   async signOut({ token }: any) {
     try {
-      const ok = await signout(token);
-      if (ok) {
-        token.userToken = null;
-      } else {
-        console.log("Failed to sign out");
+      if (token?.userToken) {
+        const ok = await signout(token.userToken);
+        if (ok) {
+          token.userToken = null;
+        } else {
+          console.log("Failed to sign out");
+        }
       }
     } catch (error) {
       console.error("Sign out error:", error);
@@ -101,3 +114,4 @@ export const AuthOptions = {
 
 export const getCurrentSession = async () =>
   await getServerSession(AuthOptions);
+
