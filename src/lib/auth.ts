@@ -41,23 +41,22 @@ const callbacks = {
         if ((status === 200 || status === 201) && data?.user && data?.token) {
           token._id = data.user._id;
           token.role = data.user.role;
-
-          // Force admin role for these specific emails in the frontend
-          const ADMIN_EMAILS = ["khaledahmedhaggagy@gmail.com", "xappeeteamegypt@gmail.com"];
-          if (ADMIN_EMAILS.includes(user.email)) {
-            token.role = "admin";
-          }
-
           token.client = data.user.client;
           token.userToken = data.token;
         } else {
           console.error("Auth callback failed or returned incomplete data", { status, data });
-          // We return the token as is, but it will lack userToken, failing the session check.
         }
       } catch (error) {
         console.error("Error in authCallback (JWT):", error);
       }
     }
+
+    // Force admin role for these specific emails in the frontend (Persistent)
+    const ADMIN_EMAILS = ["khaledahmedhaggagy@gmail.com", "xappeeteamegypt@gmail.com"];
+    if (token?.email && ADMIN_EMAILS.includes(token.email)) {
+      token.role = "admin";
+    }
+
     return token;
   },
   async session({ session, token }: any) {
@@ -65,7 +64,12 @@ const callbacks = {
       session.userToken = token.userToken;
     }
     if (token._id) {
-      session.user = { ...session.user, _id: token._id, role: token.role, client: token.client };
+      session.user = {
+        ...session.user,
+        _id: token._id,
+        role: token.role,
+        client: token.client
+      };
     }
 
     return session;
