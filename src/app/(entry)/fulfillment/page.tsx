@@ -5,6 +5,7 @@ import OrdersSearch from "@/components/invoices/fulfillment/import/orders/orders
 import { getCarriers } from "@/lib/services/carrier.service";
 import { fetchChannels } from "@/lib/services/channel.service";
 import { fetchClients } from "@/lib/services/client.service";
+import { Suspense } from "react";
 
 export default async function Home() {
   let channels: any[] = [];
@@ -14,21 +15,23 @@ export default async function Home() {
     channels = await fetchChannels();
     carriers = await getCarriers();
     clients = await fetchClients();
-  } catch (err: any) {}
+  } catch (err: any) { }
 
   return (
-    <main>
-      <section className="flex items-start justify-between ">
-        <OrdersSearch />
-        <FulfillmentActionsContainer
-          isUploadinCsv={false}
-          clients={clients}
-          channels={channels}
-        />
-      </section>
-      <FulfillmentMetadata />
-      <br />
-      <FulfullmentContainer clients={clients} carriers={carriers} />
-    </main>
+    <Suspense fallback={<div>Loading...</div>}>
+      <main>
+        <section className="flex items-start justify-between ">
+          <OrdersSearch />
+          <FulfillmentActionsContainer
+            isUploadinCsv={false}
+            clients={clients}
+            channels={channels}
+          />
+        </section>
+        <FulfillmentMetadata />
+        <br />
+        <FulfullmentContainer clients={clients} carriers={carriers} />
+      </main>
+    </Suspense>
   );
 }

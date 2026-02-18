@@ -11,7 +11,9 @@ export const fetchClients = cache(async () => {
       tags: ["clients"],
     },
   });
-  return data.clients;
+  if (ok) {
+    return data.clients;
+  } else return [];
 });
 
 export const postNewClient = async (client: any) => {

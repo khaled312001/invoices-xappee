@@ -5,6 +5,7 @@ import { UploadCsvContainer } from "@/components/invoices/fulfillment/upload-csv
 import { getCurrentSession } from "@/lib/auth";
 import { getCarriers } from "@/lib/services/carrier.service";
 import { fetchClients } from "@/lib/services/client.service";
+import { Suspense } from "react";
 
 export default async function FulfillmentUpload() {
   let carriers = [];
@@ -12,26 +13,28 @@ export default async function FulfillmentUpload() {
   try {
     carriers = await getCarriers();
     clients = await fetchClients();
-  } catch (err: any) {}
+  } catch (err: any) { }
   const session = await getCurrentSession();
   const user = session?.user || null;
   if (user && user.role !== "admin")
-     return (
-       <div className="w-full grid place-content-center text-muted-foreground">
-         <p className="mt-[40vh]">Forbidden</p>
-       </div>
-     );
+    return (
+      <div className="w-full grid place-content-center text-muted-foreground">
+        <p className="mt-[40vh]">Forbidden</p>
+      </div>
+    );
 
   return (
-    <main>
-      <section className="flex items-start justify-between">
-        <h1 className="text-lg">Upload orders csv</h1>
-        <FulfillmentActionsContainer clients={clients} isUploadinCsv={true} />
-      </section>
-      <FulfillmentUploadMetadata />
-      <FulfillmentMetadata />
-      <br />
-      <UploadCsvContainer clients={clients} carriers={carriers} />
-    </main>
+    <Suspense fallback={<div>Loading...</div>}>
+      <main>
+        <section className="flex items-start justify-between">
+          <h1 className="text-lg">Upload orders csv</h1>
+          <FulfillmentActionsContainer clients={clients} isUploadinCsv={true} />
+        </section>
+        <FulfillmentUploadMetadata />
+        <FulfillmentMetadata />
+        <br />
+        <UploadCsvContainer clients={clients} carriers={carriers} />
+      </main>
+    </Suspense>
   );
 }

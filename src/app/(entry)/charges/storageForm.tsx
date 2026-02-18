@@ -10,15 +10,15 @@ import { toast } from "sonner";
 
 const StorageForm = ({ storageFees }) => {
 
-    const [cbm, setCbm] = useState(storageFees.cbm);
-    const [space, setSpace] = useState(storageFees.space);
+    const [cbm, setCbm] = useState(storageFees?.cbm || 0);
+    const [space, setSpace] = useState(storageFees?.space || 0);
 
     const handleStorageSubmit = async (e) => {
         e.preventDefault();
         // Handle form submission to update the charges in the backend
         try {
-           await postStorageCharges({"cbm":cbm,"space":space});
-        
+            await postStorageCharges({ "cbm": cbm, "space": space });
+
             toast.success(`Storage charges updated successfuly`);
 
         } catch (error) {

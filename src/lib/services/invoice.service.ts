@@ -58,7 +58,7 @@ export const generateStorageInvoice = async (params: any) => {
   }
 };
 
-export const generateFulfillmentInvoice = async ( 
+export const generateFulfillmentInvoice = async (
   orders: any[],
   channels: number[] = [],
   clientName: string,
@@ -144,14 +144,16 @@ export const postCarrierCharges = async (newCharges: {}) => {
 };
 
 export const getStorageFees = async () => {
-  const { data } = await Fetch(`invoices/storage/charges`, {
+  const { ok, data } = await Fetch(`invoices/storage/charges`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
     cache: "no-store",
   });
-  return data.storage;
+  if (ok) {
+    return data.storage;
+  } else return {};
 };
 
 

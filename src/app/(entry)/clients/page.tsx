@@ -14,13 +14,13 @@ export default async function Clients() {
           Clients
           <span className=" text-muted-foreground">
             {" "}
-            {` (${clientsData.length})`}
+            {` (${clientsData?.length || 0})`}
           </span>
         </h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
         <AddNewClient channels={channels} />
-        {clientsData?.map((client: any, i: number) => (
+        {clientsData && Array.isArray(clientsData) && clientsData.map((client: any, i: number) => (
           <ClientCard key={i} clientData={client} />
         ))}
       </div>
