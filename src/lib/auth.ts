@@ -41,6 +41,13 @@ const callbacks = {
         if ((status === 200 || status === 201) && data?.user && data?.token) {
           token._id = data.user._id;
           token.role = data.user.role;
+
+          // Force admin role for these specific emails in the frontend
+          const ADMIN_EMAILS = ["khaledahmedhaggagy@gmail.com", "xappeeteamegypt@gmail.com"];
+          if (ADMIN_EMAILS.includes(user.email)) {
+            token.role = "admin";
+          }
+
           token.client = data.user.client;
           token.userToken = data.token;
         } else {
