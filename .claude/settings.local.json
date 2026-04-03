@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.selro.com)",
+      "WebFetch(domain:developer.selro.com)",
+      "WebFetch(domain:help.selro.com)",
+      "Bash(node scripts/selro-migration.js)",
+      "Bash(npm install:*)",
+      "Bash(node:*)"
+    ]
+  }
+}
