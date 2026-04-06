@@ -4,49 +4,52 @@ import FulfullmentContainer from "../container";
 import { useDispatch, useSelector } from "@/redux/store";
 import { selectOrderSlice } from "@/redux/slices/orderSlice/selectors";
 import { toast } from "sonner";
-import { UploadFileToServer } from "@/lib/services/files.service";
 import { orderSlice } from "@/redux/slices/orderSlice/orderSlice";
+import { useSession } from "next-auth/react";
 
-export const UploadCsvContainer = ({ carriers, clients }: { carriers: any[], clients:any[] }) => {
+export const UploadCsvContainer = ({ carriers, clients }: { carriers: any[], clients: any[] }) => {
   const { uploadedFile } = useSelector(selectOrderSlice);
   const dispatch = useDispatch();
+  const { data: session } = useSession();
+
   async function uploadFile(file: File) {
     if (!file) return;
-    const allowedTypes = ["text/csv", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"];
+    const allowedTypes = [
+      "text/csv",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "application/vnd.ms-excel",
+    ];
 
     if (!allowedTypes.includes(file.type)) {
       toast.error("Unallowed file type. Please upload a CSV or XLSX file");
       return;
     }
+
     const formData = new FormData();
     formData.append("file", file);
 
     try {
-      const { ok, data } =  await UploadFileToServer(formData, "orders/import/csv");
-      if (ok) {
+      const token = (session as any)?.userToken;
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/orders/import/csv`,
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await res.json();
+      if (res.ok) {
         dispatch(orderSlice.actions.setOrdersFromCsv(data));
-        return `${data.orders.length} orderss been added`;
+        toast.success(`${data.orders.length} orders imported`);
       } else {
-        toast.error(data.message);
+        toast.error(data.message || "Upload failed");
       }
     } catch (err: any) {
-      toast.error(err.message);
+      toast.error(err.message || "Upload failed");
     }
-
-  //   const promise = async () =>
-  //     await UploadFileToServer(formData, "orders/import/csv");
-
-  //   toast.promise(promise, {
-  //     loading: "Loading...",
-  //     success: ({ ok, data }) => {
-  //       if (!ok) return;
-        // dispatch(orderSlice.actions.setOrdersFromCsv(data));
-        // return `${data.orders.length} orderss been added`;
-  //     },
-  //     error: (error) => {
-  //       return toast.error(error.message);
-  //     },
-  //   });
   }
 
   const handleFileChange = (selectedFile: any) => {
