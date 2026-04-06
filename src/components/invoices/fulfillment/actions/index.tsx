@@ -33,7 +33,15 @@ export default function FulfillmentActionsContainer({
     useSelector(selectOrderSlice);
   const [range, setRange] = useState<DateRange | undefined>(undefined);
 
+  // For CSV upload: use the date range from the uploaded file metadata
   useEffect(() => {
+    if (isUploadinCsv && metadata?.dateRange?.from) {
+      setRange({
+        from: new Date(metadata.dateRange.from),
+        to: metadata.dateRange.to ? new Date(metadata.dateRange.to) : undefined,
+      });
+      return;
+    }
     try {
       const rangeString = localStorage.getItem("dateRange");
       if (rangeString) {
@@ -45,7 +53,7 @@ export default function FulfillmentActionsContainer({
     } catch {
       if (metadata?.dateRange) setRange(metadata.dateRange as DateRange);
     }
-  }, []);
+  }, [isUploadinCsv, metadata?.dateRange?.from, metadata?.dateRange?.to]);
 
   useEffect(() => {
     setSelectedChannelIds(selectedClient?.channel_ids ?? []);

@@ -51,22 +51,22 @@ export default function InvoiceActions({
   const dispatch = useDispatch();
 
   if (orders.length === 0) return null;
-  const handleGenerateInvoice =async () => {
-    try {
-      console.log("handleGenerateInvoice",range);
-      await dispatch(
-        generateFulfullmentInvoiceThunk({
-          orders,
-          range,
-          channels: selectedChannelIds,
-          clientName: selectedClientName ?? client.name,
-          expenseCause,
-          expenseValue
-        })
-      );
-    } catch (err: any) {
-      toast.error("something went wrong")
+  const handleGenerateInvoice = async () => {
+    const clientName = selectedClientName ?? client?.name;
+    if (!clientName) {
+      toast.error("Please select a client first");
+      return;
     }
+    await dispatch(
+      generateFulfullmentInvoiceThunk({
+        orders,
+        range,
+        channels: selectedChannelIds,
+        clientName,
+        expenseCause,
+        expenseValue,
+      })
+    );
   };
   return (
     <Button
