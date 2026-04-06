@@ -11,14 +11,16 @@ export default function SelectChannels({
   setSelectedChannelIds: any;
   selectedChannelIds: number[];
 }) {
-  const savedSelectedChannelIds = JSON.parse(
-    localStorage.getItem("selectedChannelIds") || "[]"
-  );
   useEffect(() => {
-    if (savedSelectedChannelIds.length > 0 && selectedChannelIds.length === 0) {
-      setSelectedChannelIds(savedSelectedChannelIds);
+    try {
+      const saved = JSON.parse(localStorage.getItem("selectedChannelIds") || "[]");
+      if (saved.length > 0 && selectedChannelIds.length === 0) {
+        setSelectedChannelIds(saved);
+      }
+    } catch {
+      // ignore
     }
-  }, [savedSelectedChannelIds]);
+  }, []);
 
   useEffect(() => {
     if (selectedChannelIds.length > 0) {

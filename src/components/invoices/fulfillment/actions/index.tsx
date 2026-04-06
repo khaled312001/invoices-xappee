@@ -31,21 +31,22 @@ export default function FulfillmentActionsContainer({
   const [expenseAmount, setExpenseValue] = useState<number>(0);
   const { uploadedFileOrdersMetaData: metadata } =
     useSelector(selectOrderSlice);
-  let range: DateRange | undefined;
+  const [range, setRange] = useState<DateRange | undefined>(undefined);
 
-  const rangeString = localStorage.getItem("dateRange");
-
-  if (rangeString) {
+  useEffect(() => {
     try {
-      range = JSON.parse(rangeString);
-    } catch (error) {
-      console.error("Error parsing JSON:", error);
+      const rangeString = localStorage.getItem("dateRange");
+      if (rangeString) {
+        const parsed = JSON.parse(rangeString);
+        setRange({ from: parsed.from ? new Date(parsed.from) : undefined, to: parsed.to ? new Date(parsed.to) : undefined });
+      } else if (metadata?.dateRange) {
+        setRange(metadata.dateRange as DateRange);
+      }
+    } catch {
+      if (metadata?.dateRange) setRange(metadata.dateRange as DateRange);
     }
-  } else {
-    if (metadata?.dateRange) {
-      range = metadata.dateRange;
-    }
-  }
+  }, []);
+
   useEffect(() => {
     setSelectedChannelIds(selectedClient?.channel_ids ?? []);
   }, [selectedClient]);

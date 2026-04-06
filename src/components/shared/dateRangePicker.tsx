@@ -1,5 +1,4 @@
 "use client";
-import { useSearchParams } from "@/lib/hooks/useSearchParams";
 import { useEffect, useState } from "react";
 import { DateRange } from "react-day-picker";
 
@@ -15,33 +14,39 @@ import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
 export const DateRangePicker = () => {
-  const parseSavedDateRange = (): DateRange | undefined => {
+  const [date, setDate] = useState<DateRange | undefined>(undefined);
+  const [mounted, setMounted] = useState(false);
+
+  // Only run on client after mount — avoids SSR/hydration mismatch
+  useEffect(() => {
     try {
       const raw = localStorage.getItem("dateRange");
-      if (!raw) return undefined;
-      const parsed = JSON.parse(raw);
-      if (!parsed?.from) return undefined;
-      return {
-        from: new Date(parsed.from),
-        to: parsed.to ? new Date(parsed.to) : undefined,
-      };
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed?.from) {
+          setDate({
+            from: new Date(parsed.from),
+            to: parsed.to ? new Date(parsed.to) : undefined,
+          });
+        }
+      }
     } catch {
-      return undefined;
+      // ignore corrupt localStorage
     }
-  };
+    setMounted(true);
+  }, []);
 
-  const [date, setDate] = useState<DateRange | undefined>(parseSavedDateRange);
-
+  // Save to localStorage whenever date changes
   useEffect(() => {
-    if (!date?.from) return;
+    if (!mounted || !date?.from) return;
     const from = new Date(date.from);
-    const to = date.to ? new Date(date.to) : undefined;
     if (isNaN(from.getTime())) return;
+    const to = date.to ? new Date(date.to) : undefined;
     localStorage.setItem(
       "dateRange",
       JSON.stringify({ from: from.toISOString(), to: to?.toISOString() })
     );
-  }, [date]);
+  }, [date, mounted]);
 
   return (
     <div className="grid gap-2">
