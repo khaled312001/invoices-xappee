@@ -16,8 +16,8 @@ export const fetchOrdersWithRange = async (
   channelIds: number[]
 ) => {
   if (!fromDate || !toDate) return;
-  const from = format(fromDate, "yyyy-MM-dd");
-  const to = format(toDate, "yyyy-MM-dd");
+  const from = format(new Date(fromDate), "yyyy-MM-dd");
+  const to = format(new Date(toDate), "yyyy-MM-dd");
   const { ok, data } = await Fetch(`orders/import`, {
     method: "POST",
     body: JSON.stringify({ from, to, channelIds }),

@@ -27,11 +27,13 @@ export default function FulfillmentUploadMetadata() {
   return (
     <div className="text-sm text-muted-foreground space-y-2">
       <p className="font-medium">
-        {metadata.dateRange.from === metadata.dateRange.to
-          ? format(range.from, "yyyy-MM-dd")
-          : format(range.from, "yyyy-MM-dd") +
+        {range?.from && range?.to
+          ? format(new Date(range.from), "yyyy-MM-dd") +
             " ~ " +
-            format(range.to, "yyyy-MM-dd")}
+            format(new Date(range.to), "yyyy-MM-dd")
+          : range?.from
+          ? format(new Date(range.from), "yyyy-MM-dd")
+          : null}
       </p>
       {/* <p className="text-primary text-sm flex items-center gap-2">
         <Megaphone size={20} /> Please make sure all channels belong to the same
