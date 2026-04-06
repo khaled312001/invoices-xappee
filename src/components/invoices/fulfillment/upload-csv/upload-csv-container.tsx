@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from "@/redux/store";
 import { selectOrderSlice } from "@/redux/slices/orderSlice/selectors";
 import { toast } from "sonner";
 import { orderSlice } from "@/redux/slices/orderSlice/orderSlice";
-import { useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
+import { startTransition } from "react";
 
 export const UploadCsvContainer = ({ carriers, clients }: { carriers: any[], clients: any[] }) => {
   const { uploadedFile } = useSelector(selectOrderSlice);
   const dispatch = useDispatch();
-  const { data: session } = useSession();
 
   async function uploadFile(file: File) {
     if (!file) return;
@@ -29,6 +29,7 @@ export const UploadCsvContainer = ({ carriers, clients }: { carriers: any[], cli
     formData.append("file", file);
 
     try {
+      const session = await getSession();
       const token = (session as any)?.userToken;
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/orders/import/csv`,
@@ -53,7 +54,9 @@ export const UploadCsvContainer = ({ carriers, clients }: { carriers: any[], cli
   }
 
   const handleFileChange = (selectedFile: any) => {
-    dispatch(orderSlice.actions.setUploadedFile(selectedFile));
+    startTransition(() => {
+      dispatch(orderSlice.actions.setUploadedFile(selectedFile));
+    });
     uploadFile(selectedFile);
   };
 
