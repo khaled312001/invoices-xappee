@@ -80,10 +80,6 @@ export const generateFulfillmentInvoice = async (
     throw new Error("Client name is required.");
   }
 
-  if (channels.length === 0) {
-    throw new Error("At least one channel is required.");
-  }
-
   const { data } = await Fetch(`invoices/generate`, {
     method: "POST",
     cache: "no-cache",
