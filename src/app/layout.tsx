@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   description: "Xappee warehouse management and invoices system.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function RootLayout({
   children,
 }: {

@@ -27,6 +27,7 @@ export const fetchPaginatedItems = async (page: number) => {
     }
   } catch (err: any) {
     console.log(err);
+    return { items: [], nextPage: page };
   }
 };
 

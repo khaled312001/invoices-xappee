@@ -7,7 +7,10 @@ import { fetchPaginatedItems } from "@/lib/services/item.service";
 import React from "react";
 
 export default async function Items() {
-  const { items, nextPage } = await fetchPaginatedItems(1);
+  const { items, nextPage } = (await fetchPaginatedItems(1)) || {
+    items: [],
+    nextPage: 1,
+  };
   let clients = [];
   try {
     clients = await fetchClients();

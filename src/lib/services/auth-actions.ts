@@ -40,7 +40,7 @@ export const authCallback = async (
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email, displayName, image }),
+            body: JSON.stringify({ email, name: displayName, image }),
         });
 
         // Check if response is ok

@@ -33,9 +33,9 @@ const credentialsProvider = CredentialsProvider({
 
 const callbacks = {
   async jwt({ token, user }: any) {
-    if (user) {
+    const syncBackendToken = async (email: string, name?: string, image?: string) => {
       try {
-        const result = await authCallback(user.email, user.name, user.image);
+        const result = await authCallback(email, name || email, image || "");
         const { status, data } = result;
 
         if ((status === 200 || status === 201) && data?.user && data?.token) {
@@ -43,12 +43,19 @@ const callbacks = {
           token.role = data.user.role;
           token.client = data.user.client;
           token.userToken = data.token;
+          token.userTokenSyncedAt = Date.now();
         } else {
           console.error("Auth callback failed or returned incomplete data", { status, data });
         }
       } catch (error) {
         console.error("Error in authCallback (JWT):", error);
       }
+    };
+
+    if (user) {
+      await syncBackendToken(user.email, user.name, user.image);
+    } else if (token?.email && shouldRefreshBackendToken(token)) {
+      await syncBackendToken(token.email, token.name, token.picture);
     }
 
     // Force admin role for these specific emails in the frontend (Persistent)
@@ -131,4 +138,51 @@ export const AuthOptions = {
 
 export const getCurrentSession = async () =>
   await getServerSession(AuthOptions);
+
+const decodeJwtPayload = (jwt?: string | null) => {
+  if (!jwt || typeof jwt !== "string") return null;
+
+  const payload = jwt.split(".")[1];
+  if (!payload) return null;
+
+  try {
+    const normalizedPayload = payload.replace(/-/g, "+").replace(/_/g, "/");
+    return JSON.parse(Buffer.from(normalizedPayload, "base64").toString("utf8"));
+  } catch {
+    return null;
+  }
+};
+
+const isBackendTokenExpired = (jwt?: string | null) => {
+  const payload = decodeJwtPayload(jwt);
+  if (!payload?.exp) return true;
+
+  const refreshSkewInSeconds = 60;
+  return payload.exp <= Math.floor(Date.now() / 1000) + refreshSkewInSeconds;
+};
+
+const shouldRefreshBackendToken = (token: any) => {
+  if (!token?.userToken || isBackendTokenExpired(token.userToken)) return true;
+  if (!token.userTokenSyncedAt) return true;
+
+  const refreshAgeInMs = 12 * 60 * 60 * 1000;
+  return Date.now() - Number(token.userTokenSyncedAt) >= refreshAgeInMs;
+};
+
+export const refreshBackendToken = async (session: any) => {
+  const email = session?.user?.email;
+  if (!email) return null;
+
+  const result = await authCallback(
+    email,
+    session?.user?.name || email,
+    session?.user?.image || ""
+  );
+
+  if ((result.status === 200 || result.status === 201) && result.data?.token) {
+    return result.data.token;
+  }
+
+  return null;
+};
 
