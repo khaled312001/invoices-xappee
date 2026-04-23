@@ -194,8 +194,12 @@ const FulfilmentForm = ({ carriers }) => {
         });
 
         setFormState(initialFormState);
-        const discoveredWeights = Array.from(weightsSet).sort((a: any, b: any) => a - b);
-        setWeights(discoveredWeights.length > 0 ? discoveredWeights : DEFAULT_WEIGHTS);
+        const discoveredWeights = Array.from(weightsSet);
+        const mergedWeights = Array.from(
+            new Set([...DEFAULT_WEIGHTS, ...discoveredWeights.map(String)])
+        ).sort((a: any, b: any) => Number(a) - Number(b));
+
+        setWeights(mergedWeights);
     }, [carriers]);
 
     const handleInputChange = (carrierName, serviceName, weight, value) => {
