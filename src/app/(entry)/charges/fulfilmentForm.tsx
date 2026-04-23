@@ -160,6 +160,20 @@ import { Plus, Trash, X } from "lucide-react";
 import { Fragment, useEffect, useState } from "react";
 import { toast } from "sonner";
 
+const DEFAULT_WEIGHTS = [
+    "100",
+    "250",
+    "500",
+    "750",
+    "1000",
+    "2000",
+    "3000",
+    "5000",
+    "10000",
+    "15000",
+    "17000",
+    "30000",
+];
 
 const FulfilmentForm = ({ carriers }) => {
     const [formState, setFormState] = useState({});
@@ -173,13 +187,15 @@ const FulfilmentForm = ({ carriers }) => {
         carriers.forEach(carrier => {
             initialFormState[carrier.name] = { discount: carrier.discount || '' }; // Initialize discount field
             carrier.services.forEach(service => {
-                initialFormState[carrier.name][service.name] = { ...service.charges };
-                Object.keys(service.charges).forEach(weight => weightsSet.add(weight));
+                const serviceCharges = service.charges || {};
+                initialFormState[carrier.name][service.name] = { ...serviceCharges };
+                Object.keys(serviceCharges).forEach(weight => weightsSet.add(weight));
             });
         });
 
         setFormState(initialFormState);
-        setWeights(Array.from(weightsSet).sort((a: any, b: any) => a - b));
+        const discoveredWeights = Array.from(weightsSet).sort((a: any, b: any) => a - b);
+        setWeights(discoveredWeights.length > 0 ? discoveredWeights : DEFAULT_WEIGHTS);
     }, [carriers]);
 
     const handleInputChange = (carrierName, serviceName, weight, value) => {
