@@ -6,7 +6,9 @@
       "WebFetch(domain:help.selro.com)",
       "Bash(node scripts/selro-migration.js)",
       "Bash(npm install:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(pnpm install:*)",
+      "Read(//c/Users/AIA/Downloads/**)"
     ]
   }
 }
