@@ -303,18 +303,18 @@ export const StorageInvoiceContentForPDF = (invoice: any): string => {
             </tr>
           </thead>
           <tbody>
-             ${invoice.items.map((item: any) => \`<tr class="text-xs">
-              <td class="border-b py-3 pl-3"> \${item.name || ''}</td>
-              <td class="border-b py-3 pl-2">\${item.sku || ''}</td>
-              <td class="border-b py-3 pl-2 text-right">\${item.width || 0}</td>
-              <td class="border-b py-3 pl-2 text-right">\${item.length || 0}</td>
-              <td class="border-b py-3 pl-2 text-right">\${item.height || 0}</td>
-              <td class="border-b py-3 pl-2 text-right">\${item.qty || 0}</td>
-              <td class="border-b py-3 pl-2 pr-3 text-right">\${(item.item_CBM || 0).toFixed(4)}</td>
-              <td class="border-b py-3 pl-2 pr-3 text-right">\${(item.total_CBM || 0).toFixed(4)}</td>
-              <td class="border-b py-3 pl-2 pr-3 text-right">\${(item.weeklyFee || 0).toFixed(2)}</td>
-              <td class="border-b py-3 pl-2 pr-3 text-right">\${(item.montlyFee || 0).toFixed(2)}</td>
-            </tr>\`).join('')}
+             ${invoice.items.map((item: any) => `<tr class="text-xs">
+              <td class="border-b py-3 pl-3"> ${item.name || ''}</td>
+              <td class="border-b py-3 pl-2">${item.sku || ''}</td>
+              <td class="border-b py-3 pl-2 text-right">${item.width || 0}</td>
+              <td class="border-b py-3 pl-2 text-right">${item.length || 0}</td>
+              <td class="border-b py-3 pl-2 text-right">${item.height || 0}</td>
+              <td class="border-b py-3 pl-2 text-right">${item.qty || 0}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">${(item.item_CBM || 0).toFixed(4)}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">${(item.total_CBM || 0).toFixed(4)}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">${(item.weeklyFee || 0).toFixed(2)}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">${(item.montlyFee || 0).toFixed(2)}</td>
+            </tr>`).join('')}
             <tr class="text-xs">
               <td colspan="10">
                 <table class="w-full border-collapse border-spacing-0">
@@ -329,7 +329,7 @@ export const StorageInvoiceContentForPDF = (invoice: any): string => {
                                 <div class="whitespace-nowrap text-slate-600">Total Items:</div>
                               </td>
                               <td class="border-b p-3 text-right">
-                                <div class="whitespace-nowrap font-bold text-main"> \${invoice.items.length}</div>
+                                <div class="whitespace-nowrap font-bold text-main"> ${invoice.items.length}</div>
                               </td>
                             </tr>
                                <tr>
@@ -337,7 +337,7 @@ export const StorageInvoiceContentForPDF = (invoice: any): string => {
                                 <div class="whitespace-nowrap text-slate-600">Total Storage Space (ECM):</div>
                               </td>
                               <td class="p-3 text-right">
-                                <div class="whitespace-nowrap font-bold text-main">\${invoice.totalStorageSpace.toFixed(2)}</div>
+                                <div class="whitespace-nowrap font-bold text-main">${invoice.totalStorageSpace.toFixed(2)}</div>
                               </td>
                             </tr>
                             <tr>
@@ -345,7 +345,7 @@ export const StorageInvoiceContentForPDF = (invoice: any): string => {
                                 <div class="whitespace-nowrap text-slate-600">Weekly Subtotal:</div>
                               </td>
                               <td class="p-3 text-right">
-                                <div class="whitespace-nowrap font-bold text-main">£\${invoice.weeklySubTotal.toFixed(2)}</div>
+                                <div class="whitespace-nowrap font-bold text-main">£${invoice.weeklySubTotal.toFixed(2)}</div>
                               </td>
                             </tr>
                             <tr>
@@ -353,7 +353,7 @@ export const StorageInvoiceContentForPDF = (invoice: any): string => {
                                 <div class="whitespace-nowrap font-bold text-white">Monthly Total:</div>
                               </td>
                               <td class="bg-main p-3 text-right">
-                                <div class="whitespace-nowrap font-bold text-white">£\${invoice.monthlySubtotal.toFixed(2)}</div>
+                                <div class="whitespace-nowrap font-bold text-white">£${invoice.monthlySubtotal.toFixed(2)}</div>
                               </td>
                             </tr>
                           </tbody>
