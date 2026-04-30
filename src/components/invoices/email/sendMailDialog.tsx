@@ -34,81 +34,45 @@ export function SendMailDialog(props: {
 
   const handleSendMail = async () => {
     try {
+      const toastId = toast.loading("Loading...");
+      let invoiceContent = "";
 
-      if(props.type === "fulfillment"){
+      if (props.type === "fulfillment") {
         const invoice = props.data as FulfillmentInvoice;
-        const toastId = toast.loading("Loading...")
-        const invoiceContent = InvoiceContentForPDF(invoice);
-        const element = document.createElement('div');
-        element.innerHTML = invoiceContent;
-    
-        // Generate the PDF and capture the result as a blob
-        // const options = {
-        //   filename: `Invoice_${invoice._id}.pdf`,
-        //   html2canvas: { scale: 2 },
-        //   jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
-        // };
-    
-        const options = {
-          margin: 7,
-          filename: `Invoice_${invoice._id}.pdf`,
-          html2canvas: { dpi: 72, letterRendering: true, useCORS: true },
-          jsPDF: {
-            orientation: 'portrait',
-            format: 'a4'
-            },
-          pagebreak: { mode: ['css'] }
-        };
+        invoiceContent = InvoiceContentForPDF(invoice);
+      } else {
+        // For storage, use the pre-rendered email HTML for the PDF
+        invoiceContent = props.emailHtml;
+      }
 
-        const pdfBlob = await html2pdf().from(element).set(options).output('blob');
-    
-        // Send the PDF blob to the server via API
-        const formData = new FormData();
-        formData.append('pdf', pdfBlob, `Invoice_${invoice._id}.pdf`);
-    
-        const savePdfResponse = await Fetch('invoices/save-pdf', {
-          method: 'POST',
-          body: formData
-        }, undefined, false);
-    
-        if (savePdfResponse.ok) {
-          const { ok, data }= await Fetch("invoices/send-email", {
-            method: "POST",
-            body: JSON.stringify({
-              userEmail: recipient,
-              invoice: props.data,
-              recipient,
-              subject,
-              emailHtml: props.emailHtml,
-              formData:formData
-            }),
-          });
-    
-          if(ok){
-            toast.success("The invoice email has been sent.", { id: toastId })
-            await updateInvoice(invoice._id, props.type, {
-              lastMessageId: data.messageId,
-              emailedDate: new Date().toISOString(),
-            });
-            
-            setTimeout(() => {
-              router.refresh();
-            }, 300);
-          }else{
-            toast.error("Failed to send the invoice email.", { id: toastId })
-          }
-        
-        }else{
-          toast.error("Failed to send the invoice email.", { id: toastId })
-        }
-        
-      }else{
+      const element = document.createElement('div');
+      element.innerHTML = invoiceContent;
+  
+      const options = {
+        margin: 7,
+        filename: `Invoice_${props.data._id}.pdf`,
+        html2canvas: { dpi: 72, letterRendering: true, useCORS: true },
+        jsPDF: {
+          orientation: 'portrait',
+          format: 'a4'
+        },
+        pagebreak: { mode: ['css'] }
+      };
 
-        const promise = fetch("/api/send", {
+      const pdfBlob = await html2pdf().from(element).set(options).output('blob');
+  
+      // Send the PDF blob to the server via API
+      const formData = new FormData();
+      formData.append('pdf', pdfBlob, `Invoice_${props.data._id}.pdf`);
+  
+      const savePdfResponse = await Fetch('invoices/save-pdf', {
+        method: 'POST',
+        body: formData
+      }, undefined, false);
+  
+      if (savePdfResponse.ok) {
+        const { ok, data } = await Fetch("invoices/send-email", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
           body: JSON.stringify({
             userEmail: recipient,
             invoice: props.data,
@@ -117,32 +81,27 @@ export function SendMailDialog(props: {
             emailHtml: props.emailHtml,
           }),
         });
-    
-        toast.promise(promise, {
-          loading: "Loading...",
-          success: async (res) => {
-            const data = await res.json();
-            await updateInvoice(props.data._id, props.type, {
-              lastMessageId: data.messageId,
-              emailedDate: new Date().toISOString(),
-            });
-            setTimeout(() => {
-              router.refresh();
-            }, 300);
-            return data.success
-              ? "The invoice email has been sent."
-              : "Failed to send the invoice email.";
-          },
-          error: "Something went wrong, Please try again.",
-        });
-      }
-     
-
-  } catch (error) {
-    console.error("Error:", error);
-    // Optional: Handle error (e.g., show a notification to the user)
-  }
   
+        if (ok) {
+          toast.success("The invoice email has been sent.", { id: toastId });
+          await updateInvoice(props.data._id, props.type, {
+            lastMessageId: data.messageId,
+            emailedDate: new Date().toISOString(),
+          });
+          
+          setTimeout(() => {
+            router.refresh();
+          }, 300);
+        } else {
+          toast.error("Failed to send the invoice email.", { id: toastId });
+        }
+      } else {
+        toast.error("Failed to generate and save PDF.", { id: toastId });
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Something went wrong, Please try again.");
+    }
   };
 
   return (

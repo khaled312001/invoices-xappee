@@ -13,6 +13,7 @@ import Breakdown from "@/components/invoices/storage/print/breakdown";
 import StorageInvoiceEmail from "../../../../../emails/storage-invoice";
 import { render } from "@react-email/components";
 import { enUS } from "date-fns/locale";
+import PrintPdfBtnStorage from "@/components/invoices/email/printPdfBtnStorage";
 
 
 export async function generateMetadata(
@@ -35,7 +36,7 @@ export default async function InvoicePage({
   params: { id: string };
 }) {
   const invoice = await fetchInvoiceById(params.id, "storage");
-  const emailHtml = render(StorageInvoiceEmail({ invoice }))
+  const emailHtml = await render(StorageInvoiceEmail({ invoice }))
   
   const startDate = new Date(`${invoice.from}T00:00:00`);
   const endDate = new Date(`${invoice.to}T00:00:00`);
@@ -175,6 +176,8 @@ export default async function InvoicePage({
               Email
             </Button>
           </SendMailDialog>
+
+          <PrintPdfBtnStorage invoice={invoice} emailHtml={emailHtml} />
         </CardContent>
       </Card>
     </main>
