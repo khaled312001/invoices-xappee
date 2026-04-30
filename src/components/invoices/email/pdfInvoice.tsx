@@ -209,3 +209,168 @@ export const InvoiceContentForPDF = (invoice: FulfillmentInvoice): string => {
 </html>
   `;
 };
+
+export const StorageInvoiceContentForPDF = (invoice: any): string => {
+  return `
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storage Invoice PDF</title>
+</head>
+
+<body>
+  <div>
+    <div class="py-4">
+      <div class="px-14 py-6">
+        <table class="w-full border-collapse border-spacing-0">
+          <tbody>
+            <tr>
+              <td class="w-full align-top">
+                <div>
+                  <img src="/logo.png" class="h-12" />
+                </div>
+              </td>
+
+              <td class="align-top">
+                <div class="text-sm">
+                  <table class="border-collapse border-spacing-0">
+                    <tbody>
+                      <tr>
+                        <td class="border-r pr-4">
+                          <div>
+                            <p class="whitespace-nowrap text-slate-400 text-right">Date</p>
+                            <p class="whitespace-nowrap font-bold text-main text-right"> Week ${getWeek(invoice.from, { locale: enUS, weekStartsOn: 1 })} - 
+            ${getWeek(invoice.to, { locale: enUS, weekStartsOn: 1 })}</p>
+                                        <p class="whitespace-nowrap font-bold text-main text-right"> ${format(new Date(invoice.from), "dd.MM.yy" ,{ locale: enUS, weekStartsOn: 1 })} -
+            ${format(new Date(invoice.to), "dd.MM.yy" ,{ locale: enUS, weekStartsOn: 1 })}</p>
+                          </div>
+                        </td>
+                        <td class="pl-4">
+                          <div>
+                            <p class="whitespace-nowrap text-slate-400 text-right">Invoice #</p>
+                            <p class="whitespace-nowrap font-bold text-main text-right">${invoice._id}</p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-slate-100 px-14 py-6 text-sm">
+        <table class="w-full border-collapse border-spacing-0">
+          <tbody>
+            <tr>
+              <td class="w-1/2 align-top">
+                <div class="text-sm text-neutral-600">
+                  <p class="font-bold">XAPPEE LTD</p>
+                  <p>2a Tame Road, Birmingham B6 7HS.</p>
+                   <p>+44 (0) 121 285 5040</p>
+                </div>
+              </td>
+              <td class="w-1/2 align-top text-right">
+                <div class="text-sm text-neutral-600">
+                  <p class="font-bold">${invoice.clientBusinessName ?? invoice.client}</p>
+                  <p>${invoice.clientAddress  ?? ''}</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="px-2 py-10  text-neutral-700">
+        <table class="w-full border-collapse border-spacing-0 text-xs">
+          <thead>
+            <tr>
+              <td class="border-b-2 border-main pb-3 pl-3 font-bold text-main">Name</td>
+              <td class="border-b-2 border-main pb-3 pl-2 font-bold text-main">SKU</td>
+              <td class="border-b-2 border-main pb-3 pl-2 text-right font-bold text-main">W(cm)</td>
+              <td class="border-b-2 border-main pb-3 pl-2 text-right font-bold text-main">L(cm)</td>
+              <td class="border-b-2 border-main pb-3 pl-2 text-right font-bold text-main">H(cm)</td>
+              <td class="border-b-2 border-main pb-3 pl-2 text-right font-bold text-main">Qty</td>
+              <td class="border-b-2 border-main pb-3 pl-2 pr-3 text-right font-bold text-main">CBM(m³)</td>
+              <td class="border-b-2 border-main pb-3 pl-2 pr-3 text-right font-bold text-main">Total CBM</td>
+              <td class="border-b-2 border-main pb-3 pl-2 pr-3 text-right font-bold text-main">Weekly Fee(£)</td>
+              <td class="border-b-2 border-main pb-3 pl-2 pr-3 text-right font-bold text-main">Monthly Fee(£)</td>
+            </tr>
+          </thead>
+          <tbody>
+             ${invoice.items.map((item: any) => \`<tr class="text-xs">
+              <td class="border-b py-3 pl-3"> \${item.name || ''}</td>
+              <td class="border-b py-3 pl-2">\${item.sku || ''}</td>
+              <td class="border-b py-3 pl-2 text-right">\${item.width || 0}</td>
+              <td class="border-b py-3 pl-2 text-right">\${item.length || 0}</td>
+              <td class="border-b py-3 pl-2 text-right">\${item.height || 0}</td>
+              <td class="border-b py-3 pl-2 text-right">\${item.qty || 0}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">\${(item.item_CBM || 0).toFixed(4)}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">\${(item.total_CBM || 0).toFixed(4)}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">\${(item.weeklyFee || 0).toFixed(2)}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">\${(item.montlyFee || 0).toFixed(2)}</td>
+            </tr>\`).join('')}
+            <tr class="text-xs">
+              <td colspan="10">
+                <table class="w-full border-collapse border-spacing-0">
+                  <tbody>
+                    <tr>
+                      <td class="w-full"></td>
+                      <td>
+                        <table class="w-full border-collapse border-spacing-0">
+                          <tbody>
+                            <tr>
+                              <td class="border-b p-3">
+                                <div class="whitespace-nowrap text-slate-600">Total Items:</div>
+                              </td>
+                              <td class="border-b p-3 text-right">
+                                <div class="whitespace-nowrap font-bold text-main"> \${invoice.items.length}</div>
+                              </td>
+                            </tr>
+                               <tr>
+                              <td class="p-3">
+                                <div class="whitespace-nowrap text-slate-600">Total Storage Space (ECM):</div>
+                              </td>
+                              <td class="p-3 text-right">
+                                <div class="whitespace-nowrap font-bold text-main">\${invoice.totalStorageSpace.toFixed(2)}</div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="p-3">
+                                <div class="whitespace-nowrap text-slate-600">Weekly Subtotal:</div>
+                              </td>
+                              <td class="p-3 text-right">
+                                <div class="whitespace-nowrap font-bold text-main">£\${invoice.weeklySubTotal.toFixed(2)}</div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="bg-main p-3">
+                                <div class="whitespace-nowrap font-bold text-white">Monthly Total:</div>
+                              </td>
+                              <td class="bg-main p-3 text-right">
+                                <div class="whitespace-nowrap font-bold text-white">£\${invoice.monthlySubtotal.toFixed(2)}</div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+</body>
+
+</html>
+  `;
+};

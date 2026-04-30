@@ -4,11 +4,14 @@ import html2pdf from 'html2pdf.js';
 import { StorageInvoice } from "@/types/invoice";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { StorageInvoiceContentForPDF } from "./pdfInvoice";
 
 const PrintPdfBtnStorage = ({ invoice, emailHtml }: { invoice: StorageInvoice, emailHtml: string }) => {
   const generatePDF = async () => {
+    const invoiceContent = StorageInvoiceContentForPDF(invoice);
+
     const element = document.createElement('div');
-    element.innerHTML = emailHtml;
+    element.innerHTML = invoiceContent;
     
     const options = {
       margin: 7,
