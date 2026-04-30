@@ -210,7 +210,20 @@ export const InvoiceContentForPDF = (invoice: FulfillmentInvoice): string => {
   `;
 };
 
+const asNumber = (value: any) => {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+};
+
 export const StorageInvoiceContentForPDF = (invoice: any): string => {
+  const items = Array.isArray(invoice.items) ? [...invoice.items] : [];
+  const orderedItems = items.sort(
+    (a: any, b: any) =>
+      asNumber(b.weeklyFee) - asNumber(a.weeklyFee) ||
+      asNumber(b.qty) - asNumber(a.qty)
+  );
+  const billedItems = orderedItems.filter((item: any) => asNumber(item.weeklyFee) > 0).length;
+
   return `
     <!DOCTYPE html>
 <html lang="en">
@@ -303,17 +316,17 @@ export const StorageInvoiceContentForPDF = (invoice: any): string => {
             </tr>
           </thead>
           <tbody>
-             ${invoice.items.map((item: any) => `<tr class="text-xs">
+             ${orderedItems.map((item: any) => `<tr class="text-xs">
               <td class="border-b py-3 pl-3"> ${item.name || ''}</td>
               <td class="border-b py-3 pl-2">${item.sku || ''}</td>
-              <td class="border-b py-3 pl-2 text-right">${item.width || 0}</td>
-              <td class="border-b py-3 pl-2 text-right">${item.length || 0}</td>
-              <td class="border-b py-3 pl-2 text-right">${item.height || 0}</td>
-              <td class="border-b py-3 pl-2 text-right">${item.qty || 0}</td>
-              <td class="border-b py-3 pl-2 pr-3 text-right">${(item.item_CBM || 0).toFixed(4)}</td>
-              <td class="border-b py-3 pl-2 pr-3 text-right">${(item.total_CBM || 0).toFixed(4)}</td>
-              <td class="border-b py-3 pl-2 pr-3 text-right">${(item.weeklyFee || 0).toFixed(2)}</td>
-              <td class="border-b py-3 pl-2 pr-3 text-right">${(item.montlyFee || 0).toFixed(2)}</td>
+              <td class="border-b py-3 pl-2 text-right">${asNumber(item.width)}</td>
+              <td class="border-b py-3 pl-2 text-right">${asNumber(item.length)}</td>
+              <td class="border-b py-3 pl-2 text-right">${asNumber(item.height)}</td>
+              <td class="border-b py-3 pl-2 text-right">${asNumber(item.qty)}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">${asNumber(item.item_CBM).toFixed(4)}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">${asNumber(item.total_CBM).toFixed(4)}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">${asNumber(item.weeklyFee).toFixed(2)}</td>
+              <td class="border-b py-3 pl-2 pr-3 text-right">${asNumber(item.monthlyFee ?? item.montlyFee).toFixed(2)}</td>
             </tr>`).join('')}
             <tr class="text-xs">
               <td colspan="10">
@@ -329,7 +342,7 @@ export const StorageInvoiceContentForPDF = (invoice: any): string => {
                                 <div class="whitespace-nowrap text-slate-600">Total Items:</div>
                               </td>
                               <td class="border-b p-3 text-right">
-                                <div class="whitespace-nowrap font-bold text-main"> ${invoice.items.length}</div>
+                                <div class="whitespace-nowrap font-bold text-main"> ${billedItems} billed / ${items.length} total</div>
                               </td>
                             </tr>
                                <tr>
@@ -337,7 +350,7 @@ export const StorageInvoiceContentForPDF = (invoice: any): string => {
                                 <div class="whitespace-nowrap text-slate-600">Total Storage Space (ECM):</div>
                               </td>
                               <td class="p-3 text-right">
-                                <div class="whitespace-nowrap font-bold text-main">${invoice.totalStorageSpace.toFixed(2)}</div>
+                                <div class="whitespace-nowrap font-bold text-main">${asNumber(invoice.totalStorageSpace).toFixed(2)}</div>
                               </td>
                             </tr>
                             <tr>
@@ -345,7 +358,7 @@ export const StorageInvoiceContentForPDF = (invoice: any): string => {
                                 <div class="whitespace-nowrap text-slate-600">Weekly Subtotal:</div>
                               </td>
                               <td class="p-3 text-right">
-                                <div class="whitespace-nowrap font-bold text-main">£${invoice.weeklySubTotal.toFixed(2)}</div>
+                                <div class="whitespace-nowrap font-bold text-main">£${asNumber(invoice.weeklySubTotal).toFixed(2)}</div>
                               </td>
                             </tr>
                             <tr>
@@ -353,7 +366,7 @@ export const StorageInvoiceContentForPDF = (invoice: any): string => {
                                 <div class="whitespace-nowrap font-bold text-white">Monthly Total:</div>
                               </td>
                               <td class="bg-main p-3 text-right">
-                                <div class="whitespace-nowrap font-bold text-white">£${invoice.monthlySubtotal.toFixed(2)}</div>
+                                <div class="whitespace-nowrap font-bold text-white">£${asNumber(invoice.monthlySubtotal).toFixed(2)}</div>
                               </td>
                             </tr>
                           </tbody>

@@ -43,6 +43,7 @@ export default async function InvoicePage({
   
   const formattedStartDate = format(startDate, 'dd.MM.yy');
   const formattedEnddate = format(endDate, 'dd.MM.yy');
+  const createdAt = invoice.createdAt ? new Date(invoice.createdAt) : new Date();
 
   return (
     <main>
@@ -53,10 +54,10 @@ export default async function InvoicePage({
         </div>
         <div>
           <h1 className="text-3xl font-bold">
-            £{invoice.weeklySubTotal.toFixed(2)}/WK
+            £{Number(invoice.weeklySubTotal || 0).toFixed(2)}/WK
           </h1>
           <h2 className="text-base font-normal text-right text-muted-foreground">
-            £{invoice.monthlySubtotal.toFixed(2)}/MONTH
+            £{Number(invoice.monthlySubtotal || 0).toFixed(2)}/MONTH
           </h2>
         </div>
       </Card>
@@ -110,7 +111,7 @@ export default async function InvoicePage({
             </p>
             <p className="grid grid-cols-2">
               <span className="text-muted-foreground">Bill Details</span>{" "}
-              {format(new Date(0), "dd MMM, yyyy, HH:mm a")}
+              {format(createdAt, "dd MMM, yyyy, HH:mm a")}
             </p>
             <div className="grid grid-cols-2">
               <p className="text-muted-foreground">Type</p>{" "}

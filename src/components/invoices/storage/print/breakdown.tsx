@@ -12,6 +12,11 @@ import { Separator } from "@/components/ui/separator";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 
+const asNumber = (value: any) => {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+};
+
 export default function Breakdown({ items , storageStartMonth}: { items: any , storageStartMonth: Number}) {
   const [show, setShow] = useState(false);
   return (
@@ -55,23 +60,23 @@ export default function Breakdown({ items , storageStartMonth}: { items: any , s
             </thead>
             <tbody>
               {items.map((item, index) => (
-                <tr key={item.sku} className="border-b">
+                <tr key={`${item.sku}-${index}`} className="border-b">
                   <td className="text-left py-2 px-6 text-sm lowercase">
                     {item.name?.slice(0, 40)}..
                   </td>
                   <td className="text-left py-2 px-6">{item.sku}</td>
-                  <td className="text-left py-2 px-6">{item.qty}</td>
+                  <td className="text-left py-2 px-6">{asNumber(item.qty)}</td>
                   <td className="text-left py-2 px-6">
-                    {((item.qty * item.weight) / 1000).toFixed(2)}
+                    {((asNumber(item.qty) * asNumber(item.weight)) / 1000).toFixed(2)}
                   </td>
                   <td className="text-left py-2 px-6 ">
-                    £{item.weeklyFee.toFixed(2)}
+                    £{asNumber(item.weeklyFee).toFixed(2)}
                   </td>
                   <td className="text-left py-2 px-6 ">
-                    £{item.montlyFee.toFixed(2)}
+                    £{asNumber(item.monthlyFee ?? item.montlyFee).toFixed(2)}
                   </td>
                   {!storageStartMonth ?  <td className="text-left py-2 px-6 ">
-                    £{item.montlyFee.toFixed(2)}
+                    £{asNumber(item.monthlyFee ?? item.montlyFee).toFixed(2)}
                   </td> : null }
                 </tr>
               ))}

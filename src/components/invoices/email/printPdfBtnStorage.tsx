@@ -14,10 +14,10 @@ const PrintPdfBtnStorage = ({ invoice, emailHtml }: { invoice: StorageInvoice, e
     element.innerHTML = invoiceContent;
     
     const options = {
-      margin: 7,
+      margin: 5,
       filename: `Invoice_${invoice._id}.pdf`,
-      html2canvas: { dpi: 72, letterRendering: true, useCORS: true },
-      jsPDF: { orientation: 'portrait', format: 'a4' },
+      html2canvas: { dpi: 72, letterRendering: true, useCORS: true, scale: 2 },
+      jsPDF: { orientation: 'landscape', format: 'a4' },
       pagebreak: { mode: ['css'] }
     };
     html2pdf().from(element).set(options).save();

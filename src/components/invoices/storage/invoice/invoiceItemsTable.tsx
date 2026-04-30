@@ -4,6 +4,11 @@ import { Info, PackagePlus } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { NewItemFromSku } from "../../fulfillment/import/orders/newItemFromsku";
 
+const asNumber = (value: any) => {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+};
+
 export default function InvoiceItemsTable({
   items,
   monthlySubtotal,
@@ -78,17 +83,17 @@ export default function InvoiceItemsTable({
                 item.
               </div>
             </div>
-            £{parseFloat(totalStorageSpace).toFixed(2)}
+            £{asNumber(totalStorageSpace).toFixed(2)}
           </th>
           <th className="border p-2 text-muted-foreground">
-            Per week £{parseFloat(weeklySubTotal).toFixed(2)}
+            Per week £{asNumber(weeklySubTotal).toFixed(2)}
           </th>
           <th className="border p-2 text-muted-foreground">
-            Monthly £{parseFloat(monthlySubtotal).toFixed(2)}
+            Monthly £{asNumber(monthlySubtotal).toFixed(2)}
           </th>
           
           {  !storageStartMonth ? <th className="border p-2 text-muted-foreground">
-          upfront deposit £{parseFloat(monthlySubtotal).toFixed(2)}
+          upfront deposit £{asNumber(monthlySubtotal).toFixed(2)}
           </th> : null}
           
         </tr>
@@ -102,7 +107,7 @@ export default function InvoiceItemsTable({
             return true;
           })
           .map((item: any) => {
-            const { item_CBM, total_CBM, ECM, weeklyFee, montlyFee, sku } =
+            const { item_CBM, total_CBM, ECM, weeklyFee, montlyFee, monthlyFee, sku } =
               item;
             return (
               <tr
@@ -122,23 +127,23 @@ export default function InvoiceItemsTable({
                   {item.name}
                 </td>
                 <td className="border p-2 mr-4 ">
-                  {parseFloat(item_CBM).toFixed(4)}
+                  {asNumber(item_CBM).toFixed(4)}
                 </td>
                 <td className="border p-2 font-semibold text-muted-foreground">
                   {item.qty}
                 </td>
                 <td className="border p-2">
-                  {parseFloat(total_CBM).toFixed(4)}
+                  {asNumber(total_CBM).toFixed(4)}
                 </td>
-                <td className="border p-2">{parseFloat(ECM).toFixed(4)}</td>
+                <td className="border p-2">{asNumber(ECM).toFixed(4)}</td>
                 <td className="border p-2">
-                  £{parseFloat(weeklyFee).toFixed(2)}
+                  £{asNumber(weeklyFee).toFixed(2)}
                 </td>
                 <td className="border p-2">
-                  £{parseFloat(montlyFee).toFixed(2)}
+                  £{asNumber(monthlyFee ?? montlyFee).toFixed(2)}
                 </td>
               {  !storageStartMonth ? <td className="border p-2">
-                  £{parseFloat(montlyFee).toFixed(2)}
+                  £{asNumber(monthlyFee ?? montlyFee).toFixed(2)}
                 </td> : null}
               </tr>
             );
